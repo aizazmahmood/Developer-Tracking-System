@@ -3,7 +3,7 @@
 **Author/session:**  
 **Status:** TEST_DESIGN / IN_PROGRESS / BLOCKED / IMPLEMENTED_PENDING_REVIEW / DONE  
 **Starting source revision:**  
-**Approved contract revision and approval reference:**  
+**Initial recorded test baseline; later revision approval (if revised):**
 **Goal and acceptance IDs:**  
 **Files changed:**  
 **Implementation / reasoning summary:**  
@@ -11,7 +11,7 @@
 
 ### Actual verification
 
-| Command / evaluator run | Source + contract revision | Platform/runtime | Expected | Actual exit/result | Artifact |
+| Command / evaluator run | Source + initial test baseline / later revision | Platform/runtime | Expected | Actual exit/result | Artifact |
 |---|---|---|---|---|---|
 | NOT RUN | — | — | — | Explain why | — |
 
@@ -22,10 +22,12 @@
 **Solution applied and regression evidence:**  
 **Related ISSUE / DECISION IDs:**  
 **Remaining risks:**  
-**Independent review / gate result:**  
+**Independent evaluation/release gate (if separately established):**
 **Next exact task/action:**
 
-A completion entry must not claim DONE without independent acceptance. Append a later revision/PR reference when needed; do not invent future commit hashes.
+A completion entry must not claim DONE without required verification and any
+separately established release/acceptance controls. Initial new-test approval
+is not required; record explicit approval only for later existing-test revisions. Append a later revision/PR reference when needed; do not invent future commit hashes.
 
 Canonical records: [work history](../docs/memory/PROJECT_MEMORY.md),
 [issues](../docs/memory/ISSUES.md), [decisions](../docs/memory/DECISIONS.md),

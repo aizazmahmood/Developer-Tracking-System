@@ -71,3 +71,37 @@ Removed docs/prompts/ including its archived bootstrap file; Git history retains
 the former contents. Historical entries are preserved, including earlier links
 that refer to the removed files. General documentation/memory locations and all
 security, test, approval, dependency and push rules remain unchanged.
+
+## 2026-11-10 — D-022 — Owner correction: approval for test revisions only
+
+**Status:** EXPLICIT_OWNER_CORRECTION; effective for active workflow.
+**Evidence/source:** User asked to read and run the externally supplied
+DT-001-VERIFY-corrected-test-policy.md on 2026-11-10. It explicitly authorizes the
+narrow documentation-policy updates and forbids new/changed executable tests,
+source repairs or infrastructure changes in this validation task. The assignment
+is kept outside the repository; no prompt storage is recreated.
+
+> Codex may write new tests and implement against them without owner approval.
+> Only changes to existing tests or existing test behaviour require explicit,
+> scoped owner approval.
+
+This supersedes only conflicting initial-test/contract approval, candidate
+promotion and prerequisite reviewer-sign-off wording in prior decisions/policy
+and historical next steps (including initial-approval portions of D-003/D-015
+and bootstrap records). Tests become existing once written, including earlier
+in the same task; authorship, a general continue, passing results or silence is
+not authority to revise them. New independent tests may be authored when assigned;
+additive cases must preserve all prior cases, setup, expectations and execution.
+
+Revisions to existing tests, fixtures, snapshots, mocks/helpers, discovery,
+thresholds, commands/configuration and dependency resolution affecting existing
+checks need explicit scoped approval. Record the exact scope/source of any real
+approval; do not relabel tests as drafts or change harness/production solely to
+hide failure. No revision approval is issued by this entry.
+
+Independent infrastructure remains separately tracked and unconfigured; it is
+not a replacement initial-approval gate. Security/privacy, owner-only dependency
+installation/pushes, meaningful local commits, truthful results and separately
+established release controls are retained. Historical approval records and
+acceptance cases remain unchanged. Existing test-candidates naming/discovery
+stays in place; any execution integration is a separately scoped revision.

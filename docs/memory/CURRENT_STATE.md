@@ -1,55 +1,67 @@
 # Current State
 
 **Last updated:** 2026-11-10 (Asia/Karachi).
-**Documentation:** DOCS-002 — IMPLEMENTED_PENDING_REVIEW.
-**Application:** DT-001 — SCAFFOLDED_NOT_VERIFIED; DT-000 remains PENDING.
+**Task:** DT-001-VERIFY — baseline executed; overall DT-001 remains NOT_VERIFIED.
+**Policy:** owner-corrected; no initial approval of new tests required.
 
-## Repository and documentation
+## Current rule and scope
 
-This cleanup began at `923d9ea`, branch main, with a clean working tree.
-The owner requested removal of the prompt folder and files. docs/prompts/ and
-its two files are removed, and active links, AGENTS organisation instructions
-and the architecture layout no longer require them. Earlier prompt references
-inside historical records/specifications are retained as evidence; their contents
-remain recoverable from commit `923d9ea` without keeping working-tree copies.
-The [documentation index](../README.md) and all five canonical memory files remain.
-Source, tests, dependencies, lockfile and build configuration are unchanged.
+Codex may write new tests and implement against them without owner approval.
+Only changes to existing tests or existing test behaviour require explicit,
+scoped owner approval. Tests become existing immediately after creation,
+including within the same task. No candidate promotion or replacement initial
+review gate is required. See [AGENTS.md](../../AGENTS.md) and
+[test policy](../TEST_POLICY.md). Other security/release/task limits remain.
 
-## Application evidence and open approvals
+DT-001-VERIFY began at d4690763c41823d1c0f7d53f6dd2f4d170e9d1d6 on main,
+with no local modifications; it matches the requested baseline. Only scoped
+policy documentation, templates, canonical memory and a validation report changed.
+No source, executable tests, acceptance cases/specs, fixtures, dependencies,
+lockfile, package scripts or build/test configuration were changed. The external
+assignment was not stored; docs/prompts/ remains absent.
 
-The existing static shell remains unverified. No timer, database, capture, AI,
-sync, tray or updater implementation was added. DT-001 contract r0.1 and
-candidate checks remain PROPOSED; no independent acceptance was supplied.
-This session observed node_modules and package-lock.json already present;
-no installation or lockfile change was performed. Historical statements that
-they were absent describe the earlier bootstrap session.
+## Actual verification
 
-Application checks (typecheck/lint/candidate tests/approved tests/launch/package
-and Windows/macOS native behaviour) were NOT_RUN in this documentation-only
-session. No new runtime, security-enforcement or AI-quality evidence is claimed.
+Native Windows x64 tools were invoked through the WSL2 host: build Node 22.19.0,
+npm 11.14.1, Electron 45.2.3. Installed/locked/manifest direct versions agree for
+27 packages; npm ls --depth=0 exited 0. Existing Windows Git identity is usable;
+no identity was changed. Linux Git identity remains unset.
 
-## Documentation verification and blockers
+- **PASS:** candidate suite, 6 files / 22 cases, exit 0.
+- **FAIL:** aggregate typecheck, exit 2, three TS2428 declaration-merge diagnostics.
+- **FAIL:** lint, exit 1, two CommonJS no-require-imports errors.
+- **FAIL:** npm test, exit 1, zero discovered tests; empty-suite protection intact.
+- **PASS:** independently invoked existing shared and renderer tsc configs, exit 0 each.
+- **PASS, limited development evidence:** actual Windows window rendered the four
+  states and version 0.1.0. Unavailable controls were visible; disabled properties
+  passed component tests, while native accessibility returned no control data.
+  Closing this task's window ended the app, npm start exited 0, and zero workspace
+  Electron processes remained. Actual adversarial security checks were not run.
+- **NOT_RUN:** package/make (current helper fetches checksum metadata even with
+  a cached Electron ZIP), packaged/installed app, installer execution and Mac checks.
 
-DOCS-002 verification checks folder absence, active links, retained historical
-records and unchanged application/tool files.
-Git diff review and whitespace results are recorded in [work history](PROJECT_MEMORY.md).
-This is self-check evidence, not independent acceptance.
+Full commands, diagnostics, file counts, B01–B12 mapping, package preflight,
+integrity hashes and repair proposals: [DT-001 baseline](../validation/DT-001-baseline.md).
+No behavioural red run was reconstructed for the existing bootstrap.
 
-Linux Git user.name/user.email remain unset (ISSUE-002). The existing Windows
-Git identity was subsequently verified and provides a commit workaround without
-changing settings; it is used for authorized local commits. Prior tool-access, installation and whitespace reports
-remain in [ISSUES.md](ISSUES.md) with dated corrections; their history was retained.
+## Next bounded work
 
-## Next owner action
+ISSUE-005: diagnose/present an exact compatible assertion-typing repair for scoped
+approval before changing existing dependencies/tests. ISSUE-006: a CJS-only lint
+rule override is proposed, not applied. ISSUE-007: normal suite integration needs
+an explicitly approved discovery/existing-expectation revision; new-test initial
+approval is not the blocker. No timer/storage/capture/AI feature work was done.
 
-Review the documentation migration and its local commit. Use the existing
-configured Windows Git for future commits, or configure Linux Git explicitly
-if the owner wants to use it. Review the existing lockfile and run the application
-checks from the repository root when returning to DT-001. Establish reviewer,
-contract and independent safeguards under DT-000 before feature implementation.
-No dependencies were installed and nothing was pushed in DOCS-002.
+DT-000 independent infrastructure remains separately tracked/unconfigured and
+is not a substitute implementation-start gate. Genuine native security,
+packaging, installation and separately established release evidence remain open.
+No dependencies were installed, no binaries/models fetched, no prompt stored,
+and nothing was pushed. The app-only observation image is ignored and uncommitted.
 
-Records: [tasks](TASKS.md), [history](PROJECT_MEMORY.md), [issues](ISSUES.md),
+## Canonical records
+
+[Tasks](TASKS.md), [history](PROJECT_MEMORY.md), [issues](ISSUES.md),
 [decisions](DECISIONS.md), [architecture](../ARCHITECTURE.md),
-[test policy](../TEST_POLICY.md), [toolchain](../TOOLCHAIN.md), and
-[owner setup](../OWNER_SETUP.md).
+[test policy](../TEST_POLICY.md), [owner setup](../OWNER_SETUP.md).
+Historical approval metadata and earlier path/result statements remain evidence;
+the dated superseding owner correction governs active test-authoring workflow.

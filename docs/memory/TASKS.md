@@ -1,13 +1,13 @@
 # Task Backlog
 
-**DT-001 is SCAFFOLDED_NOT_VERIFIED under the explicit BOOTSTRAP_ONLY exception; DT-000 remains PENDING and all feature tasks remain PLANNED.** Work in dependency order. Every task needs a reviewed acceptance contract and a memory entry. A task can be TEST_DESIGN, READY_FOR_IMPLEMENTATION, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, BLOCKED, IMPLEMENTED_PENDING_REVIEW or DONE; DONE requires independent evidence.
+**DT-001 is NOT_VERIFIED after baseline validation (candidate/development checks pass; typecheck/lint/normal-suite integration remain open). DT-000 infrastructure is separately PENDING and feature tasks remain PLANNED.** Work in dependency order. Assigned feature tasks write new tests first, record/run them and implement without initial approval; existing-test revisions require explicit scoped owner approval. Every task records evidence and memory. A task can be TEST_DESIGN, READY_FOR_IMPLEMENTATION, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, BLOCKED, IMPLEMENTED_PENDING_REVIEW or DONE; DONE requires independent evidence.
 
 | ID | Deliverable | Dependencies | Required evidence before DONE |
 |---|---|---|---|
-| DT-000 | Governance, protected test workflow, approved defaults and reviewer setup | None | Owner-configured controls; unauthorized test/config alteration is rejected; no agent bypass. |
-| DT-001 | Secure Electron shell, proposed command scripts, pinned toolchain, packaged Windows smoke build | DT-000 | Window opens; sandbox/IPC checks; clean install/launch; first macOS compile and shared tests where available. |
+| DT-000 | Separately tracked governance/enforcement improvement, defaults and reviewer setup | None | Owner-configured controls; unauthorized test/config alteration is rejected; no agent bypass. |
+| DT-001 | Secure Electron shell, proposed command scripts, pinned toolchain, packaged Windows smoke build | None for assigned scaffold work; DT-000 tracked separately | Window opens; sandbox/IPC checks; clean install/launch; first macOS compile and shared tests where available. |
 | DT-002 | Platform interfaces and native dependency packaging spike | DT-001 | SQLite opens in packaged utility process; selected-window capture proof on Windows; macOS adapter contract compiles. |
-| DT-010 | Pure timer/session state machine | DT-001 | Approved unit/property tests, meaningful red run, independent green run; pause, overlap and clock-change cases. |
+| DT-010 | Pure timer/session state machine | DT-001 | Recorded initial unit/property tests, meaningful red run, verified green and any later approved test revisions; pause, overlap and clock-change cases. |
 | DT-020 | SQLite journal, checkpoints, recovery, corrections and outbox | DT-002, DT-010 | Real-database restart/crash/disk-error tests; no imaginary recovered hours; transactional outbox. |
 | DT-030 | Timer UI, tray, single-instance and lifecycle behaviour | DT-020 | Start/pause/resume/stop UI tests; window-close behaviour; real lock/sleep/quit checks. |
 | DT-040 | Consent, selected-source capture, race cancellation and retention | DT-002, DT-030 | Zero accepted post-pause captures; no source fallback; real capture/permission tests; encrypted-buffer deletion policy. |
@@ -59,3 +59,26 @@ folder and files. Removed both docs/prompts files and empty directories; updated
 active index/instructions/layout references. Earlier DOCS-001 entries and their
 historical links remain unchanged; prior contents are recoverable from `923d9ea`.
 Application files and test contracts are unchanged. Next: owner reviews cleanup.
+
+## 2026-11-10 — DT-001-VERIFY baseline and policy alignment
+
+**Status:** NOT_VERIFIED overall; authorized policy correction implemented.
+Owner clarified that Codex may write new tests and implement against them without
+initial approval. Existing-test/test-behaviour revisions require explicit scoped
+approval, including tests just authored in the same task. This supersedes earlier
+initial-contract/candidate-approval next steps above without rewriting history.
+DT-000 enforcement infrastructure is separately tracked, not a feature-start gate.
+
+Actual results: candidate suite 6 files/22 cases PASS (0); typecheck FAIL (2,
+Assertion declaration mismatch); lint FAIL (1, two CJS import rules); ordinary
+npm test FAIL (1, no files). Shared/renderer compiler checks PASS (0 each).
+Windows development window/metadata/close observed; npm start exit 0.
+Package/make/packaged launch/installed app/Mac NOT_RUN under documented limits.
+[Report and B01–B12 map](../validation/DT-001-baseline.md).
+
+No executable tests, source, specs/acceptance cases, dependencies, lockfile or
+build/test configuration changed; no initial test approval remains a blocker.
+Smallest next task: inspect a compatible typing repair and present the precise
+existing-surface revision for approval. CJS lint override and discovery integration
+are separate proposed revisions (ISSUE-005..007); none applied here. No dependency
+installation or push performed. The validation task does not authorize features.

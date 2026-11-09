@@ -124,3 +124,77 @@ No new application or tooling issue encountered. Prompt files were intentionally
 removed at the owner's request. Earlier links to docs/prompts/ in append-only
 records identify former files rather than active documentation. Use commit
 `923d9ea` to retrieve them; active index/current-state links were updated.
+
+## 2026-11-10 — ISSUE-005 — Aggregate typecheck fails on Assertion declarations
+
+**Task/source:** DT-001-VERIFY at d469076. **State:** OPEN; diagnosis recorded,
+no repair authorized/applied. **Environment:** Windows Node 22.19.0, npm 11.14.1,
+TypeScript 5.9.3, Vitest 5.1.0, jest-dom 7.0.1; invoked through WSL2 interop.
+**Reproduce:** `npm run typecheck`, exit 2; three TS2428 diagnostics in
+jest-dom/types/vitest.d.ts:5 and Vitest config/task-utils declarations.
+**Confirmed cause:** Existing jest-dom augmentation declares Assertion<T> while
+Vitest declares Assertion<R,T>; TypeScript rejects the merged parameter lists.
+**Attempts:** Read declarations; left dependencies, tests and tsconfig unchanged.
+The aggregate script stops before its later compiler commands. Invoking the
+existing shared and renderer configs directly via Windows Node exited 0 each.
+The first two direct .cmd wrapper attempts exited 1 because the shell consumed
+unquoted backslashes; corrected executable invocation, not configuration.
+**Proposed solution:** Diagnose a compatible package pair or matcher typing
+strategy; present exact dependency/lock/test-import changes for scoped approval
+before touching existing surfaces. Do not use skipLibCheck or edit node_modules.
+**Verification:** Unresolved; candidate runtime tests independently pass 22 cases.
+That success does not make typechecking pass. Full report: ../validation/DT-001-baseline.md.
+
+## 2026-11-10 — ISSUE-006 — TypeScript lint import rule applied to CJS configs
+
+**Task/source:** DT-001-VERIFY at d469076. **State:** OPEN.
+**Reproduce:** `npm run lint`, exit 1; two errors, no warnings:
+forge.config.cjs:1 and webpack.renderer.config.cjs:1, no-require-imports.
+**Confirmed cause:** Existing recommended TypeScript lint rules cover these
+CommonJS configuration files, where require is used to load dependencies.
+**Attempts:** Inspected current config and diagnostics; made no lint/build repair.
+**Proposed solution:** Add a scoped **/*.cjs override disabling only
+@typescript-eslint/no-require-imports, retaining all other rules. This is an
+existing-configuration revision requiring explicit approval; not applied.
+**Verification:** Unresolved. Passing source compilation does not clear lint.
+
+## 2026-11-10 — ISSUE-007 — Ordinary test command has no integrated suite
+
+**Task/source:** DT-001-VERIFY at d469076.
+**State:** OPEN_INTEGRATION; expected failure control, not a fabricated test defect.
+**Reproduce:** `npm test`, exit 1: No test files found. Its configured unit,
+integration and acceptance locations contain no executable tests; test-candidates
+is excluded and passWithNoTests remains false.
+**Actual separate evidence:** `npm run test:candidates`, exit 0; 6 files, 22 cases
+pass. Existing discovery test also passes. No missing dependency/runner crash
+was mistaken for this empty-suite condition.
+**Solution proposed:** Separately authorize the precise ordinary discovery
+include/exclusion change and corresponding existing discovery-test/B10 revision
+needed to execute the same cases through the normal suite. Preserve fail-on-zero
+and all behavioural coverage. No suite moved, renamed, weakened or promoted here.
+**Approval boundary:** Existing execution/expectation changes require explicit
+scoped approval. Initial approval of newly authored tests is not a blocker.
+**Verification:** Integration not performed; ordinary test command still fails.
+
+## 2026-11-10 — DT-001-VERIFY environment and prerequisite observations
+
+ISSUE-001: actual current host kernel is WSL2; historical npm wrapper wording
+about WSL 1 was not reused as an OS diagnosis. Installed Windows Node/npm/Git
+and Electron were usable through authorized interop. Bare Linux Node is absent.
+Inherited ELECTRON_RUN_AS_NODE=1 explained the initial version-only Node-style
+output; a version-only child with the flag removed returned Electron v45.2.3,
+exit 0. Forge already removes this flag for development GUI launch. No persistent
+environment, permissions or settings were changed.
+
+ISSUE-002: existing configured Windows Git remains the local-commit workaround;
+no identity was invented or changed. ISSUE-003: all 27 direct package versions
+match manifest/lock/install; npm ls --depth=0 exits 0. This establishes installed
+prerequisites at this depth, not healthy declarations/build/runtime overall.
+
+Packaging preflight (not a reproduced package defect): an Electron ZIP is cached,
+but the current helper validates it by fetching checksum metadata with cache
+bypass and may fall back to a binary download. Package/make were NOT_RUN under
+the no-extra-fetch condition. No cache-clearing/config workaround was attempted.
+Windows development rendering/metadata/normal-close were observed with no repair;
+native security attacks, packaged/installed apps and Mac checks remain unexecuted.
+A native accessibility read returned no controls; it was not recorded as a pass.

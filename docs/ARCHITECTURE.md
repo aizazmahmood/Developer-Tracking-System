@@ -201,7 +201,14 @@ desktop-tracker/
     acceptance/
     fixtures/
     hardware/
-  test-candidates/    # proposed additions; not an acceptance bypass
+  test-candidates/    # existing scaffold suites; discovery integration tracked separately
 ```
 
 The trusted evaluator and approved acceptance snapshot have separate owner-controlled permissions. They need not be another large application, but their authority must not be editable by the implementation agent. See the test policy.
+
+The active test-first workflow records new tests and runs them before implementing
+assigned features without initial approval. Explicit scoped approval is required
+before revising existing tests or their execution, including tests just created
+in the same task. Independent infrastructure is separately tracked and is not
+an initial-approval gate. Historical specification approval metadata is preserved;
+see the current test policy for the superseding owner rule.

@@ -288,3 +288,105 @@ pushed; no dependencies installed. Resulting commit hash is reported in handoff.
 current-state diff reviewed. The final verifier rerun exited 0 with the same
 62 active links and unchanged-file/history checks. Local commit is authorized;
 no push will be performed.
+
+## 2026-11-10T02:31:28+05:00 — DT-001-VERIFY — Baseline and owner policy correction
+
+**Author/session:** Codex, owner-requested external corrected-policy validation.
+**Starting source revision:** d4690763c41823d1c0f7d53f6dd2f4d170e9d1d6, main; clean working tree,
+matching requested baseline d469076. No pull/reset/branch/remote operation.
+**Status:** DT-001 NOT_VERIFIED overall; policy alignment implemented; failures
+recorded without repair. This is not whole-application completion.
+**Initial recorded test baseline:** Existing six candidate files at the starting
+revision, SHA256 snapshot captured before changes. No new executable tests written;
+no existing tests, cases, specs, fixtures or execution configuration revised.
+**Later test revision approval:** NONE requested/issued/applied in this task.
+**Owner authorization / D-022:** External DT-001-VERIFY-corrected-test-policy.md,
+invoked by the owner; kept outside the repo. Codex may write new tests and implement
+against them without owner approval. Only revisions to existing tests/test
+behaviour require explicit scoped approval. Initial contract review/candidate
+promotion/independent sign-off is not a start gate. Other limits remain intact.
+
+**Changed files:** AGENTS.md; docs/TEST_POLICY.md, OWNER_SETUP.md, ARCHITECTURE.md,
+README.md; templates/TASK_SPEC.md and WORK_ENTRY.md; canonical current state,
+tasks, decisions, issues and this history; new docs/validation/DT-001-baseline.md.
+Changes are scoped policy wording/fields, active next steps, a dated report and
+memory. Historical work/issue/decision entries remain verbatim; dated task history
+is preserved while its active policy preamble is corrected. B01–B12 and other
+specifications are unchanged. No prompt-storage directory recreated.
+
+### Actual commands and evidence
+
+| Command / observation | Actual exit/result |
+|---|---|
+| Git status/log/full revision; required docs/spec/source/config/all candidate reads | 0; starting clean main at d469076; actual source inspected |
+| Python tracked-file/dependency/lock baseline inventory | 0; 64 tracked hashes, all 27 direct manifest/lock/installed versions match |
+| Windows cmd /d /c ver | 0; Windows build 10.0.26100.9711 |
+| Windows node version/platform/arch/location probe | 0; v22.19.0, win32 x64; Program Files/nodejs |
+| Windows npm --version; Windows git --version | 0 / 0; 11.14.1 / 2.51.0.windows.1 |
+| git --version; python3 --version; host platform probe | 0; Linux Git 2.43.0, Python 3.12.3, actual WSL2 kernel 6.6.87.2-microsoft-standard-WSL2 x86_64 |
+| cmd.exe /c npm ls --depth=0 | 0 / PASS, 27 direct packages, no reported direct dependency problems |
+| cmd.exe /c npm run typecheck | 2 / FAIL, three TS2428 Assertion declaration diagnostics; ISSUE-005 |
+| cmd.exe /c npm run lint | 1 / FAIL, 2 no-require-imports errors in CJS configs, 0 warnings; ISSUE-006 |
+| cmd.exe /c npm run test:candidates | 0 / PASS, 6 files / 22 cases, no failures/skips; 11.96 seconds |
+| cmd.exe /c npm test | 1 / FAIL, 0 files/cases found; empty-suite protection intact, no normal integration; ISSUE-007 |
+| Direct .cmd compiler wrapper attempts for shared/renderer configs | 1 each, command path consumed by shell; corrected invocation only, not behavioural red |
+| Windows node node_modules/typescript/bin/tsc --noEmit -p tsconfig.shared.json | 0 / PASS |
+| Windows node node_modules/typescript/bin/tsc --noEmit -p tsconfig.renderer.json | 0 / PASS |
+| cmd.exe /c npm start | 0 after normal app close; main/preload/renderer built; actual Windows window rendered |
+| Scoped process/window observation and app-only PrintWindow capture | 0; title/statuses/version 0.1.0 observed; initial observer DPI crop corrected, no app changes |
+| Native accessibility read of only this app | 0 command, no button elements returned; native enabled-state evidence inconclusive, not a pass |
+| CloseMainWindow/WaitForExit on this run's exact app process | 0; close true, exited within 10 seconds, zero workspace Electron processes remain |
+| Direct electron.exe --version | 0, initially v24.22.2 because inherited ELECTRON_RUN_AS_NODE=1; no false Electron-version claim |
+| Single-flag environment check; version-only child with flag removed | 0; flag confirmed; child stdout v45.2.3, exit 0; no persistent environment change; Forge already clears it |
+| PowerShell direct GUI binary version probe | 0 but no captured stdout; subsequent Node spawnSync supplied actual version evidence |
+| Cache/helper/maker source and installed artifact inspection | 0 overall; existing Electron ZIP cached, but current package helper fetches checksum metadata on cache hit |
+| One helper rg query naming nonexistent util/rebuild.js | 2; installed real rebuild/start/package paths subsequently inspected; no file manufactured |
+| npm run package; npm run make; packaged/installed app | NOT_RUN: no-extra-fetch condition not met by current helper; no installer run or artifact created |
+| Mac compile/runtime/package/security checks | NOT_RUN: no Mac environment |
+| git diff --check | Initially 2 for two newly carried documentation hard-break lines; corrected those edited doc lines, then 0 / PASS |
+| Python before/after hash/history/instruction/link checks | 0 / PASS: 52 unrelated tracked files unchanged; prior histories retained; Git/dependency/security/organisation rules unchanged; 60 active local link targets exist |
+| git check-ignore screenshots/DT-001-VERIFY-development.png | 0; observation image ignored and excluded from staging |
+
+All four baseline npm commands ran independently; one failure did not suppress
+another. The aggregate typecheck's && prevented its later compiler stages, so
+the same existing shared/renderer configurations were checked independently.
+No runner/test/configuration error was called behavioural red. This existing
+bootstrap has new local passing evidence, not a fabricated historical red run.
+
+**Coverage/result details:** The report maps B01–B12, separates mocked boundary
+behaviour/source assertions from actual Windows render/metadata/close, lists
+22 per-file passing cases and records missing native security, package/install
+and Mac evidence. Visually grey controls plus component disabled-property checks
+are not presented as successful native accessibility inspection. No sandbox,
+CSP, navigation, permissions or renderer-global adversarial check was run.
+
+**Failures and proposals:** ISSUE-005 declaration merge incompatibility;
+ISSUE-006 CJS lint scope; ISSUE-007 normal discovery integration gap. No repairs
+applied. Smallest next task is to diagnose a compatible typing revision and
+present its exact dependency/test/configuration diff for scoped approval. The
+CJS-only lint override and corresponding discovery/B10 integration revisions
+are separate proposals requiring approval of existing surfaces, not initial
+approval of newly written tests. No package defect is invented for NOT_RUN.
+
+**Integrity/limits:** Source, executable tests, specs/cases, fixtures, manifests,
+lockfile, TS/ESLint/Vitest/Webpack/Forge/CI configuration are unchanged. Combined
+52-file baseline inventory SHA256:
+be340ef546576a9a2823b0129a4bb235bed2f32befa9357f11630a7993493174.
+Local hashes are documentation, not independent enforcement. Existing test-candidates
+naming/discovery remains; legacy approval metadata is historical and not a start
+blocker. DT-000 infrastructure is separately pending/unconfigured. No initial
+new-test approval remains an owner action.
+
+**Next/commit:** Inspect final/staged docs, commit locally with configured Windows
+Git identity and report hash in handoff (not self-reference). Owner may authorize
+precise existing-surface repairs separately and perform actual package/installer
+and required release checks. No dependencies installed, binaries/models fetched,
+source/tests repaired, prompt stored, remotes changed or push performed.
+
+**Final staged review:** Explicit 13-path staging exited 0;
+`git diff --cached --check` exited 0. Intended/staged policy, template, report
+and memory diffs inspected; no source/test/dependency/config path staged.
+Final hash/history check passed for the same 52 unrelated tracked files and
+previous historical entries. Application checks were not repeated after docs-only
+edits. One coherent local documentation commit records both the corrected rule
+and the passing/failing/NOT_RUN baseline evidence; its hash is returned in handoff.

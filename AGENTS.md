@@ -83,21 +83,31 @@ failures as completed work. Report resulting hashes. A commit is not approval.
 
 ## 5. Test-first workflow and approval boundary
 
-TEST_DESIGN: derive acceptance criteria and proposed tests from the requirement
-before feature implementation. Put unapproved tests in `test-candidates/`.
-Include failure cases, not only happy paths. Expected results must not be
-calculated using the production logic being checked. Submit for owner or
-independent reviewer approval; do not approve your own contract.
+TEST_DESIGN: derive new tests from the assigned requirements before feature
+implementation. Write meaningful failure cases with expected results independent
+of the production logic. Record their initial content and source baseline.
+No initial owner approval, contract approval, candidate promotion or reviewer
+sign-off is required to create new tests or implement against them.
 
-IMPLEMENT: use the explicitly approved test-contract revision. Record a genuine
-failing behaviour before fixing it, then verify the required passing checks.
-An existing reproducing regression test can provide red evidence. Broken
-imports, missing dependencies and infrastructure errors do not qualify.
+IMPLEMENT: run the recorded tests, capture a genuine behavioural failure where
+applicable, implement and verify. An existing reproducing regression can supply
+red evidence; missing dependencies, broken imports and infrastructure errors
+cannot. Do not fabricate a historical red run for an existing scaffold.
 
-Do not weaken or remove approved tests, fixtures, snapshots, assertions,
-discovery rules, thresholds, runner configuration, test dependencies or
-mandatory CI checks. A legitimate correction requires a separately approved
-contract revision. Never change the requirement just to match the code.
+Once written, tests are existing tests, including tests created earlier in the
+same task. Obtain explicit, scoped owner approval before edits, deletions, skips,
+disabling, substantive moves/renames or replacements. Explain the precise proposed
+revision and its coverage effect, then wait for approval of that change; continue
+only independent work. A failure, passing run, general continue or silence is
+not test-revision approval. Do not relabel created tests as unfinished drafts.
+
+New independent tests need no approval when the assignment includes test writing;
+prefer new files. Additive cases in an existing file are allowed only if existing
+cases, execution, shared setup and expectations remain unchanged. Existing
+fixtures, snapshots, mocks/helpers, discovery, thresholds, test commands,
+configuration and dependency resolution affecting existing test behaviour require
+explicit approval before revision. Never neutralise old coverage or change a
+requirement to fit the implementation. Record the actual scope/source of approval.
 
 No `.skip`, `.only`, `.todo`, pass-with-no-tests, swallowed assertions,
 unconditional passing tests, success-on-error commands, blanket snapshot
@@ -122,7 +132,8 @@ build/lint/test configuration, proposed tests, compile-time interfaces and a
 minimal secure static shell before dependency installation. This is scaffold
 preparation, not verified feature implementation or proof of TDD. Do not build
 the timer, persistence, capture, inference or sync behaviours under this
-exception. Record SCAFFOLDED_NOT_VERIFIED and leave independent approval open.
+exception. Record SCAFFOLDED_NOT_VERIFIED and report remaining runtime/release evidence;
+new-test approval is not an implementation prerequisite.
 
 ## 6. Architecture and security rules
 
@@ -151,7 +162,8 @@ by later AI output. Keep secrets and raw staff evidence out of Git and memory.
 For every work session, including blocked or partial work:
 
 - Append to `docs/memory/PROJECT_MEMORY.md`: timestamp, task ID, starting revision,
-  approved contract reference or PENDING, changes/files, decisions, commands,
+  initial recorded test baseline and any later revision approval, changes/files,
+  decisions, commands,
   actual outcomes/exit codes, issue IDs, remaining work and next action.
 - Update `docs/memory/CURRENT_STATE.md` and `docs/memory/TASKS.md` with the actual state and next step.
 - Record encountered issues in `docs/memory/ISSUES.md`: symptom, reproduction, environment,
@@ -166,7 +178,8 @@ Never fabricate command output, approvals, issue resolution or test results.
 Use the actual environment date. Avoid self-referential commit hashes: record
 the starting revision in the entry and report the new hash after committing.
 
-Only mark DONE after the required independent acceptance. Otherwise use
+Only mark DONE after required verification and any separately established
+release/acceptance controls. Initial approval of new tests is not required. Otherwise use
 TEST_DESIGN, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, IMPLEMENTED_PENDING_REVIEW,
 BLOCKED or NOT_VERIFIED as appropriate.
 
@@ -174,7 +187,7 @@ BLOCKED or NOT_VERIFIED as appropriate.
 
 End with task/status, files changed, exact checks and PASS/FAIL/NOT_RUN results,
 commits created, remaining blockers and the next owner action. Distinguish
-candidate tests from approved acceptance tests. State that nothing was pushed.
+local candidate-suite evidence from independent/native acceptance evidence. State that nothing was pushed.
 Do not claim Windows/macOS runtime behaviour, packaging, protection enforcement
 or AI quality has been verified without the corresponding evidence.
 

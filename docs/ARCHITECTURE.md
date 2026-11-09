@@ -204,11 +204,24 @@ desktop-tracker/
   test-candidates/    # existing scaffold suites; discovery integration tracked separately
 ```
 
-The trusted evaluator and approved acceptance snapshot have separate owner-controlled permissions. They need not be another large application, but their authority must not be editable by the implementation agent. See the test policy.
+DT-000 proposes a trusted evaluator and acceptance snapshot with separate
+owner-controlled permissions. Their authority must not be editable by the
+implementation agent when configured. This infrastructure is not currently
+configured and is not a generic completion gate for unrelated local work.
+Obey actual configured controls; see the test policy for the infrastructure plan.
 
 The active test-first workflow records new tests and runs them before implementing
 assigned features without initial approval. Explicit scoped approval is required
 before revising existing tests or their execution, including tests just created
-in the same task. Independent infrastructure is separately tracked and is not
-an initial-approval gate. Historical specification approval metadata is preserved;
-see the current test policy for the superseding owner rule.
+in the same task. A bounded task may be DONE when its assigned outcome and required
+checks pass, evidence is recorded and memory is updated. Local verification counts
+for its stated scope; no generic human review, frozen reviewer-approved contract,
+candidate promotion or external evaluator is required for ordinary completion.
+Do not downgrade required checks after failure. A bounded repair may be DONE while
+its parent is IN_PROGRESS with real failures and missing evidence still visible.
+Independent infrastructure is separately tracked and is neither an initial
+approval nor an ordinary completion gate. Native/model/platform evidence remains
+mandatory in tasks whose acceptance requires it; DONE does not establish release
+readiness, signing, installation or macOS validation. Historical specification
+approval metadata is preserved; the current test policy supersedes historical
+initial-approval/completion gates without altering technical acceptance cases.

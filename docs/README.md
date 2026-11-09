@@ -1,6 +1,7 @@
 # Developer Work Tracker
 
-**DT-001: SCAFFOLDED_NOT_VERIFIED.** Electron + React + strict TypeScript,
+**DT-001: IN_PROGRESS; partially verified. DT-001-TYPEFIX: DONE; locally verified
+at cbc55c4.** Electron + React + strict TypeScript,
 Electron Forge with Webpack. This is a static desktop shell. Tracking is not
 implemented, capture is off, AI is not configured and the app is local-only /
 not connected. All session controls are disabled. No time, screenshots, records
@@ -32,7 +33,12 @@ No custom installation hooks, publishing, automatic updates or signing
 credentials are configured. Start/package/make need the Electron binary already
 obtained through the owner's installation. If a tool requests an additional
 download, the owner controls that action. No Linux maker or Linux support is
-claimed. No Windows/macOS launch or packaging has been verified.
+claimed. The earlier DT-001-VERIFY report records a Windows development-window
+launch, metadata and close observation. Packaged/installed runtime, actual native
+security enforcement and macOS evidence remain outstanding. The typefix report
+records passing typecheck and 27 candidate cases; lint still has two CommonJS
+errors and ordinary discovery still finds no tests. These are prior runs, not
+new verification by this documentation change.
 
 ## Layout
 
@@ -62,21 +68,39 @@ URL. The configured sandbox, isolation, navigation/permission denials and CSP
 require actual Electron verification; source inspection cannot prove runtime
 enforcement. No workers or OS adapters are started.
 
-## Approval and later work
+## Task completion and later work
 
 `specs/DT-001-bootstrap.md` revision 0.1 preserves the historical bootstrap
 acceptance cases and approval metadata. The active rule is now: write new tests,
 record/run them, implement, verify; obtain explicit scoped approval only before
 revising existing tests or their execution. No initial test approval, contract
-approval, candidate promotion or reviewer sign-off is required to begin an
-assigned feature. Existing tests include ones just created in the same task.
+approval, candidate promotion or reviewer sign-off is required to begin or
+complete ordinary assigned work. Existing tests include ones just created in
+the same task. Separate policy/dependency, installation, remote and release
+permissions remain unchanged.
+
+Mark a bounded task DONE after its assigned outcome and required checks actually
+pass, evidence is recorded and memory is updated. Local evidence is legitimate
+for its stated scope; no generic human review or external evaluator is needed.
+Required checks come from the assignment and relevant regression coverage; do
+not omit checks or narrow scope after failure. An assigned repair can be DONE
+while its parent remains IN_PROGRESS with partial verification and visible gaps.
+Do not invent a smaller task to disguise unfinished assigned work.
 
 The candidate directory and discovery remain unchanged in this validation task.
 `npm test` cannot be called green because candidates pass or normal tests are
 absent. Integrating suites requires approval for the precise discovery/test
 execution change. DT-000 independent infrastructure remains a separately tracked
-improvement, not a substitute initial-approval gate. Local checks do not establish
-independent evaluation; release/native evidence remains separately required.
+improvement, not a substitute initial-approval or completion gate. Local checks
+do not establish independent evaluation. Native/model/release evidence remains
+mandatory in tasks that require it, along with actual configured controls.
+Task DONE does not mean production-ready, signed, installed or macOS-verified.
+
+Report tasks as PLANNED, IN_PROGRESS, DONE or BLOCKED and checks as PASS, FAIL or
+NOT_RUN with reasons and evidence scope. AWAITING_OWNER_APPROVAL is a qualifier
+only for a specific authorization need; AWAITING_REVIEW applies only to a concrete
+assigned or configured review. Owner action is None for completing this task
+unless a specific permission is needed. Do not start unassigned follow-on work.
 
 DT-002 must validate native SQLite packaging/ABI and packaged utility-process
 paths before storage implementation. There is no better-sqlite3 or Ollama
@@ -95,6 +119,8 @@ not proof of implementation or protection enforcement. Source locations:
 - [Current state](memory/CURRENT_STATE.md) and [task backlog](memory/TASKS.md).
 - [DT-001 baseline validation](validation/DT-001-baseline.md): actual commands,
   local test counts, Windows evidence and remaining gaps.
+- [DT-001 typing repair](validation/DT-001-typefix.md): prior local typecheck and
+  candidate results at cbc55c4; active status corrections are in current memory.
 - [Work history](memory/PROJECT_MEMORY.md), [issues and solutions](memory/ISSUES.md),
   and [decisions](memory/DECISIONS.md).
 - [Toolchain](TOOLCHAIN.md), [registry metadata](toolchain-metadata.json),

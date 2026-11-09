@@ -131,3 +131,47 @@ Typecheck and 27 candidates pass locally. Lint and ordinary-suite failures remai
 as documented in ISSUE-006/007. This is not full DT-001 acceptance, independent
 enforcement, package/platform verification or permission to change those controls.
 See [validation](../validation/DT-001-typefix.md) and D-022 for the revision boundary.
+
+## 2026-11-10T03:36:33+05:00 — D-024 — Verified bounded tasks may be completed locally
+
+**Status:** EXPLICIT_OWNER_CORRECTION, effective for active workflow.
+**Source:** owner explicitly requested execution of external
+DOCS-003-task-completion-policy.md. This authorizes the active policy/template
+and status edits in DOCS-003; it does not authorize code, test, configuration,
+dependency, installation, remote or release changes. No prompt copy is retained.
+
+New tests may be written first, recorded/run and implemented against without
+initial approval. Bounded work may be DONE after its assigned outcome and required
+checks pass, evidence is recorded and memory updated. Local checks establish
+local results; ordinary completion needs no generic human review, frozen
+reviewer-approved contract, candidate promotion or unconfigured evaluator artifact.
+Required checks cannot be dropped, excluded or downgraded after failure.
+
+Existing tests include those authored earlier in the same task. Their assertions,
+expectations, fixtures, snapshots, helpers, discovery/filtering, thresholds, runner
+settings and dependency resolution affecting execution retain the explicit scoped
+owner-approval boundary. New coverage cannot neutralise existing coverage.
+Policy/dependency changes, owner-only installation/pushes, remote operations and
+release/signing permissions remain separate; no configured control is bypassed.
+
+Use PLANNED, IN_PROGRESS, DONE or BLOCKED for tasks and PASS, FAIL or NOT_RUN for
+checks. AWAITING_OWNER_APPROVAL qualifies a specific authorization need;
+AWAITING_REVIEW applies only to a concrete assigned/configured review. No generic
+IMPLEMENTED_PENDING_REVIEW queue. Owner action: None for completing this task
+unless an actual specific permission is required. Completed work does not
+permit starting unassigned follow-on features.
+
+DT-000 remains infrastructure planning, NOT_CONFIGURED; it is not an unrelated
+local-completion gate. Task-specific native/model checks and actual configured
+release controls remain mandatory. DONE is not a production-readiness, independent
+evaluation, signing, installation or macOS claim. An already assigned bounded
+repair may finish while its parent is IN_PROGRESS; keep all parent gaps visible
+and do not invent subtasks after failure to hide incomplete work.
+
+This supersedes conflicting active completion/review wording and historical
+completion-gate portions of D-015/D-022/D-023 without erasing their evidence or
+changing technical acceptance cases. Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265
+and the unchanged typefix report support DT-001-TYPEFIX DONE; DT-001 is IN_PROGRESS,
+partially verified with lint/discovery failures and packaging/native/platform gaps.
+No new application run or independent acceptance is claimed. No review is needed
+merely to complete that repair or DOCS-003 after its documentation checks pass.

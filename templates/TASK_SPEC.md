@@ -1,8 +1,9 @@
 # TASK-ID — Title
 
-**Status:** DRAFT / BASELINE_RECORDED / IMPLEMENTED_PENDING_REVIEW / ACCEPTED
+**Status:** PLANNED / IN_PROGRESS / DONE / BLOCKED
 **Owner:**  
-**Reviewer:**  
+**Reviewer (optional; only for an explicitly assigned review):**
+
 **Dependencies:**
 
 ## Outcome
@@ -32,7 +33,27 @@ Writing tests does not authorize revising them later in the same task.
 
 ## Implementation and acceptance evidence
 
-Candidate SHA, exact commands/results, trusted-gate artifact, native/model evidence, memory/issue links and any separately established release/review evidence. Never fill placeholders with invented results.
+Source revision, exact commands and PASS/FAIL/NOT_RUN results with reasons,
+evidence scope (local unit/component/type checks, native Windows, packaged
+artifact, macOS, model evaluation as applicable), and memory/issue links.
+Trusted-evaluator artifacts or review records apply only when actually configured
+or assigned. Native/model/platform evidence remains required when this task's
+acceptance calls for it. Never fill placeholders with invented results.
+
+## Completion and owner action
+
+Mark DONE when the assigned outcome and required checks pass, evidence is recorded
+and memory is updated. Local evidence is legitimate for its stated scope; no
+generic review or initial test approval is needed. Do not reduce required checks
+after failure. A bounded repair can finish while its parent remains IN_PROGRESS;
+record parent gaps separately without waiving them or inventing a smaller task.
+
+**Parent milestone and remaining gaps (if applicable):**
+
+**Specific owner action:** None for completing this task, unless a concrete
+protected revision or separately applicable permission needs authorization.
+AWAITING_OWNER_APPROVAL and AWAITING_REVIEW are conditional qualifiers, used only
+for an actual authorization need or explicitly assigned/configured review.
 
 Canonical records: [work history](../docs/memory/PROJECT_MEMORY.md),
 [issues](../docs/memory/ISSUES.md), [decisions](../docs/memory/DECISIONS.md),

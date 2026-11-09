@@ -228,3 +228,51 @@ ordinary test FAIL (1, no files); neither repaired/waived. Runtime, package,
 installer, macOS, security enforcement and AI checks NOT_RUN in this task.
 See [full evidence](../validation/DT-001-typefix.md). Next: owner review, then
 separately scoped lint/discovery work. No dependency installation or push.
+
+## 2026-11-10T03:36:33+05:00 — ISSUE-008 — Conflicting ordinary task-completion gates
+
+**Task:** DOCS-003. **Status:** IN_PROGRESS pending documentation verification.
+**Starting revision/environment:** cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265,
+clean main, WSL2 workspace; documentation-only inspection with Python/Git/rg.
+**Symptom/reproduction:** TASKS active preamble required independent evidence for
+DONE; templates required reviewer/trusted-gate fields, while active summaries put
+a verified typing repair in a generic pending-review state. TEST_POLICY completion
+text conflated local results with an evaluator gate. Read the starting files or
+search their completion/reviewer/evaluator wording to reproduce the inconsistency.
+**Cause:** previous clarification removed initial-test approval gates but left
+completion rules and status reporting inconsistent; README/architecture still
+suggested untested scaffold or unconfigured evaluator requirements.
+**Failed attempts:** none for this correction; it is a documentation inconsistency,
+not a reproduced application defect or evidence of independent enforcement.
+**Solution:** owner's DOCS-003 clarification (D-024) explicitly authorizes active
+policy/template/memory updates: assigned outcomes plus required checks and memory
+permit DONE with local evidence, without generic review. Existing-test revision,
+installation/push, technical, security and release-specific controls are retained.
+**Typing evidence:** existing cbc55c4 report records typecheck PASS (0), original
+22 + five candidates PASS (0), integrity/whitespace PASS; unrelated CJS lint and
+ordinary discovery FAIL (1 each). No rerun is fabricated. Typing subtask becomes
+DONE at that full revision; parent remains IN_PROGRESS, partially verified.
+**Verification:** pending dependency-free consistency, link, history, scope/hash
+and whitespace checks. Original validation reports and historical records remain.
+**Residuals/next:** ISSUE-006/007 and packaging/native/macOS gaps remain unchanged;
+no broader task completion or test approval is inferred. No owner review is needed
+for DOCS-003 completion after its own documentation checks pass.
+
+### 2026-11-10T03:39:46+05:00 — ISSUE-008 verification and resolution
+
+**Task:** DOCS-003. **Status:** DONE; documentation inconsistency resolved locally.
+`python3 /tmp/check_docs003.py` exited 0: scope/hash, historical prefixes, technical
+requirements, preserved controls, active completion/status rules, prior cbc55c4
+evidence, 61 local links and git diff --check all PASS. Application commands are
+NOT_RUN in DOCS-003; prior typing results are not reruns or independent evidence.
+
+Actual failed checks retained: the initial helper exited 1 after its earlier
+scope/history/protection/policy checks passed, because it expected a prose phrase
+not present in the existing report. Corrected the documentation helper to inspect
+the report's actual total/new-case inventory table; the report stayed unchanged.
+A separate git diff --check exited 2 on five modified/new template Markdown hard
+breaks (the whitespace pattern seen in ISSUE-004). Removed trailing whitespace
+only on those changed lines, using paragraph separation. The rerun passed (0).
+No application/test assertion, config or recorded result was revised to hide a
+failure. ISSUE-006/007 and parent release/native/platform gaps remain unchanged.
+No owner action or review is required to complete this documentation task.

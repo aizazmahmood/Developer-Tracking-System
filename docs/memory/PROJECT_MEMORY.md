@@ -464,3 +464,89 @@ local commit, then authorize the exact bounded CJS lint repair separately. Do no
 start discovery integration or features. No prompt stored, remote changed or push.
 Local commit follows staged scope/whitespace review; resulting hash is reported
 in handoff rather than made self-referential in committed memory.
+
+## 2026-11-10T03:32:45+05:00 — DOCS-003 initial scope and documentation checks
+
+**Status:** IN_PROGRESS. Starting revision: cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265, main, clean.
+Owner explicitly assigned DOCS-003-task-completion-policy.md, authorizing active
+completion/review wording in AGENTS, relevant documentation/templates and canonical
+memory. DOCS-003 is unused. The external assignment is not stored in the repo.
+No application/test/configuration/dependency revision is authorized.
+
+Before editing policy, defined the dependency-free documentation checks:
+1. Active instructions allow new tests, implementation and completion after
+   assigned checks pass, without generic human review or evaluator requirements.
+2. Existing-test revision protections, owner-only installation/push restrictions,
+   security rules and task-specific native/release checks remain intact.
+3. Active summaries distinguish DONE typing repair from IN_PROGRESS parent with
+   explicit lint, ordinary discovery, packaging and native-validation gaps.
+4. Preserve historical memory and both validation reports; verify local cbc55c4
+   evidence without claiming a new application test run.
+5. Check local Markdown links in changed active content, baseline hashes for all
+   unrelated tracked files, exact authorized documentation-only scope, intended
+   diff and git diff --check. Do not install a checker or create executable tests.
+
+Captured SHA-256 for all 70 tracked files and complete Markdown baselines
+externally in /tmp/docs003-baseline.json before editing. Read local typefix report
+and commit: aggregate typecheck PASS (0), original 22 + five candidates PASS (0),
+remaining CJS lint FAIL (1) and ordinary suite FAIL (1), integrity/whitespace PASS.
+These are prior DT-001-TYPEFIX results at cbc55c4, not reruns in DOCS-003.
+Next: correct active instructions and summaries, verify the defined doc checks,
+record outcomes and commit locally. No initial review checkpoint is needed.
+
+## 2026-11-10T03:39:46+05:00 — DOCS-003 completion and verification
+
+**Status:** DONE. Starting revision: cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265,
+main, initially clean. Owner explicitly assigned the external DOCS-003 task,
+authorizing active documentation/policy/template/status edits only. Initial doc
+check plan and all 70 tracked-file baselines were recorded before policy edits;
+no executable tests were created or revised. Assignment stays outside the repo.
+
+Changed 12 paths: AGENTS.md; docs/TEST_POLICY.md, docs/OWNER_SETUP.md,
+docs/README.md, docs/ARCHITECTURE.md; templates/TASK_SPEC.md and WORK_ENTRY.md;
+all five canonical docs/memory records. D-024 records explicit owner clarification;
+ISSUE-008 records the conflicting completion rules and actual fix/check attempts.
+Active rules now permit assigned new tests, implementation and DONE after required
+checks pass with recorded local evidence and updated memory. Existing-test/effective
+execution protections and separate policy/dependency, installation/push, remote
+and release permissions remain. Reviews are conditional on real assignment or
+configured controls, and evaluator artifacts on actual assignment/configuration.
+No checks may be dropped, excluded or downgraded after failure. No unassigned
+follow-on task is started; native/model requirements remain task-specific and mandatory.
+
+Local cbc55c4 commit and unchanged typefix report were inspected. DT-001-TYPEFIX
+is DONE, locally verified at that full revision: prior aggregate typecheck PASS
+(0), original 22 plus five candidate cases PASS (0), integrity/whitespace PASS.
+Underlying results did not change and were not rerun by DOCS-003. DT-001 is
+IN_PROGRESS, partially verified: recorded lint FAIL (1, two CJS errors), ordinary
+tests FAIL (1, no files); packaging/installation, actual native Windows enforcement
+and required macOS evidence NOT_RUN. Prior development-window observation has
+limited scope. No other historical task is retroactively completed or test approved.
+DT-000 remains PLANNED, infrastructure NOT_CONFIGURED; it is not a generic gate.
+
+Actual checks: `python3 /tmp/check_docs003.py` PASS (0) after documented helper/
+whitespace corrections. It verifies all 12 changed paths are authorized Markdown;
+58 other tracked files are byte-identical, including source, executable tests,
+fixtures, manifests/lockfile, configuration, CI and specs. Historical memory prefixes,
+TASKS dated sections/technical requirements, both validation reports and unchanged
+AGENTS Git/dependency/security sections are preserved. Active policies/templates
+and bounded/parent statuses are consistent, and 61 active/appended local links
+resolve in the first complete pass. `git diff --check` PASS (0). Local hashes are
+local documentation evidence, not independent enforcement. Final records and
+staged diff are checked again before the local commit; no application test rerun
+is needed for this documentation-only correction.
+
+Failed attempts: helper initially FAIL (1) on an absent report prose phrase;
+changed it to check the existing exact inventory table without editing evidence.
+Whitespace check FAIL (2) on five changed/new template hard breaks; corrected
+those changed lines only (related ISSUE-004), preserving other historical content.
+Rerun PASS (0); ISSUE-008 records resolution. No check requirement was weakened.
+Application typecheck/tests/lint/launch/package/installer/macOS/security/model
+commands NOT_RUN this session (documentation only), not prerequisites for DOCS-003.
+
+Owner action: None for completing this task; no review required. Next technical
+work remains ISSUE-006 lint and ISSUE-007 ordinary test-discovery repair under
+separate precise authorization; neither was started. No dependencies installed,
+source/tests/fixtures/configuration changed, prompt folder recreated, remotes
+changed or changes pushed. Commit locally with existing Windows Git identity after
+explicit staging/review; report resulting hash in handoff, not self-reference.

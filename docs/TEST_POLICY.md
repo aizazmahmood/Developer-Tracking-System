@@ -1,6 +1,6 @@
 # Protected Test-First Development Policy
 
-**Status:** Owner-corrected test-first workflow, 2026-11-10; independent
+**Status:** Owner-corrected test-first and completion workflow, 2026-11-10; independent
 infrastructure remains proposed, not configured.
 **Goal:** Prevent implementation work from being accepted by weakening its tests, while still allowing legitimate, reviewed changes to requirements and tests.
 
@@ -13,7 +13,9 @@ against them without initial approval. Only changes to existing tests or existin
 test behaviour require explicit, scoped owner approval. An initial recorded test
 baseline records content; it is not an approval request. Separately established
 release controls remain with the owner. Independent evaluation is not claimed
-merely because initial test approval is unnecessary.
+merely because initial test approval is unnecessary. A bounded task may be DONE
+after its assigned outcome and required checks pass with recorded local evidence
+and updated memory; no generic human review or external evaluator is required.
 
 ## 2. Two-stage workflow for each feature
 
@@ -50,8 +52,8 @@ expectations remain unchanged. New coverage cannot replace or neutralise old cov
 
 Request explicit, scoped approval before editing, deleting, skipping, disabling,
 substantively moving/renaming or replacing existing tests. The same rule covers
-existing fixtures, snapshots, mocks/helpers, discovery, thresholds, test commands,
-configuration or dependency resolution that changes what existing tests check or
+existing fixtures, snapshots, mocks/helpers, discovery, filtering, thresholds,
+runner settings, test commands, configuration or dependency resolution that changes what existing tests check or
 whether they run. Explain the precise proposal and coverage effect, wait for that
 approval and continue only independent work. A failure, passing run, general
 continue or silence does not authorize revision. Do not bypass failures through
@@ -70,7 +72,13 @@ requirements or expectations merely to make a failing implementation pass.
 
 ## 3. Enforcement outside the implementation agent
 
-For a GitHub repository, configure required pull-request reviews, code-owner review, no force pushes and no agent bypass. Require review of the most recent applicable changes or dismiss stale approvals. Protect CODEOWNERS itself. Availability depends on repository visibility and account plan [S14, S15].
+This section is the DT-000 infrastructure plan, not a claim of configured controls
+or a blanket completion gate. When assigned by the owner, configure required
+pull-request reviews, code-owner review, no force pushes and no agent bypass for
+the hosted repository. Require review of the most recent applicable changes or
+dismiss stale approvals. Protect CODEOWNERS itself. Availability depends on
+repository visibility and account plan [S14, S15]. Existing configured controls
+and mandatory checks must still be obeyed; their absence is not an invented gate.
 
 Recommended protected surface:
 
@@ -83,7 +91,7 @@ Codex may establish new tests without initial approval. Revisions to existing
 tests or existing test behaviour require explicit owner approval; other protected
 surfaces retain their separately applicable owner-controlled permissions. The implementation identity has no repository-admin, ruleset, signing, external-evaluator or check-reporting credentials.
 
-The acceptance workflow is loaded from a trusted pinned revision or external evaluator repository, not replaced by the PR being judged. It fetches the frozen acceptance bundle independently. Reject unauthorized protected-path changes before executing the candidate. Detect additions, deletions, renames and symlink substitutions; do not inspect only ordinary edits.
+In that proposed design, the acceptance workflow is loaded from a trusted pinned revision or external evaluator repository, not replaced by the PR being judged. It fetches the frozen acceptance bundle independently. Reject unauthorized protected-path changes before executing the candidate. Detect additions, deletions, renames and symlink substitutions; do not inspect only ordinary edits.
 
 Run untrusted candidate build/test code in disposable restricted workers with no production/signing secrets or writable controller state. Keep the controller's check-reporting credential outside the process executing candidate code. Do not use a privileged pull_request_target job to execute arbitrary PR code with secrets. Read-only files help but do not make an in-process JavaScript test harness a security sandbox; pair invariant tests with external process/black-box checks and code review.
 
@@ -94,11 +102,11 @@ The trusted gate must explicitly fail on missing jobs, skipped mandatory suites,
 ## 4. Minimum bootstrap versus stronger isolation
 
 Independent enforcement infrastructure is a separately tracked improvement, not
-an initial-test approval or implementation-start gate. Owner-enforced branch
+an initial-test approval, implementation-start or ordinary task-completion gate. Owner-enforced branch
 rules, protected revisions and a trusted controller outside candidate-write
 permissions can enforce the existing-test revision rule when configured. Record
 their actual state; do not claim they are active or invent a substitute approval
-step before implementing an assigned feature against newly written tests.
+step before implementing and completing an assigned feature against newly written tests.
 
 A read-only acceptance checkout, independent challenge cases and externally isolated black-box tests strengthen the design. Hidden tests can reduce overfitting but are not a substitute for sound specifications. Do not give a false guarantee that test tampering is impossible merely because a file hash or prompt exists.
 
@@ -160,17 +168,37 @@ Include irrelevant/blank images, incomplete errors, mixed tasks, hidden sensitiv
 
 Model/prompt changes rerun the corpus. Repeated-run variability and limitations are recorded. Schema-valid but invented content is a failure. Passing a small corpus does not establish universal accuracy.
 
-## 9. Memory and task-completion gate
+## 9. Memory and task completion
 
-Every code task adds an append-only [PROJECT_MEMORY](memory/PROJECT_MEMORY.md) entry and updates [CURRENT_STATE](memory/CURRENT_STATE.md). New failures receive [ISSUES](memory/ISSUES.md) entries with reproduction, attempted approaches, root cause status, solution and regression evidence. The gate checks required fields and references, while the evaluator—not self-reported Markdown—establishes pass/fail.
+Every session adds an append-only [PROJECT_MEMORY](memory/PROJECT_MEMORY.md) entry and updates [CURRENT_STATE](memory/CURRENT_STATE.md) and [TASKS](memory/TASKS.md). New failures receive [ISSUES](memory/ISSUES.md) entries with reproduction, attempted approaches, root cause status, solution and regression evidence. Record actual command results with their source revision and scope. Local checks establish local results; Markdown records do not create independent enforcement. Record evaluator artifacts only when an evaluator is actually configured or assigned.
 
-Definition of DONE: recorded initial test baseline; meaningful red evidence where
-applicable; verified green for required checks at the exact candidate; explicit
-owner approval for any later revisions to existing tests/test behaviour; no
-unapproved protection changes; required native/model evidence; memory/issues
-updated; residual limits documented; any separately established release/acceptance
-controls satisfied. Initial test approval is not a completion or implementation
-prerequisite. Use NOT_RUN, BLOCKED or IMPLEMENTED_PENDING_REVIEW otherwise.
+Definition of DONE: assigned outcome implemented; initial test baseline and
+meaningful red evidence where applicable; required checks actually passing at
+the recorded source revision; explicit scoped owner approval for any revisions
+to existing tests/test behaviour; no unapproved protection changes; memory and
+issues updated; residual limits documented. Local verification is sufficient for
+the checks it performs. No generic review, candidate promotion or frozen
+reviewer-approved contract is required to begin or complete ordinary development.
+
+Required checks come from the assigned task and relevant regression coverage.
+Do not omit checks, introduce exclusions or downgrade requirements after a failure
+to declare DONE. Required native/model/platform checks remain mandatory in their
+assigned tasks, as do actual configured checks and applicable release controls.
+Documentation/type-only completion does not establish production readiness,
+independent evaluation, native runtime behaviour, signing, installation or macOS.
+
+Use task statuses PLANNED, IN_PROGRESS, DONE or BLOCKED, with each check PASS,
+FAIL or NOT_RUN and its evidence/reason. Use AWAITING_OWNER_APPROVAL only as a
+qualifier for a concrete change needing authorization. AWAITING_REVIEW applies
+only to an explicitly assigned review or an actually configured control. Do not
+place every verified task in an IMPLEMENTED_PENDING_REVIEW queue. Owner action
+is None for completing this task unless a specific authorization is needed.
+
+An already assigned bounded repair can be DONE while its parent is IN_PROGRESS
+with partial verification. Keep unrelated parent failures visible and unchanged;
+do not invent a subtask after failure to disguise unfinished work. Completing a
+task does not authorize starting unassigned features. DT-000 remains separately
+tracked infrastructure planning, not a completion gate for unrelated local work.
 
 A session interrupted before completion still records its attempts and blockers. Nothing should disappear simply because an agent session ended.
 
@@ -181,4 +209,4 @@ until a separately authorized integration change. Their names do not create an
 initial approval or candidate-promotion requirement. Empty ordinary discovery
 must still fail. Changing existing discovery/configuration or test execution
 requires explicit approval; writing genuinely new tests under a later assigned
-test/feature task does not. DT-001-VERIFY writes or changes no executable tests.
+test/feature task does not. Historically, DT-001-VERIFY changed no executable tests.

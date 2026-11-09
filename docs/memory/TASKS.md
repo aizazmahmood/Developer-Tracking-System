@@ -1,6 +1,40 @@
 # Task Backlog
 
-**DT-001 is NOT_VERIFIED overall. DT-001-TYPEFIX is locally verified (typecheck and 27 candidate cases pass); lint and normal-suite integration remain open. DT-000 infrastructure is separately PENDING and feature tasks remain PLANNED.** Work in dependency order. Assigned feature tasks write new tests first, record/run them and implement without initial approval; existing-test revisions require explicit scoped owner approval. Every task records evidence and memory. A task can be TEST_DESIGN, READY_FOR_IMPLEMENTATION, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, BLOCKED, IMPLEMENTED_PENDING_REVIEW or DONE; DONE requires independent evidence.
+**DT-001 — IN_PROGRESS; partially verified. DT-001-TYPEFIX — DONE; locally verified
+at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE.**
+DT-000 is PLANNED (infrastructure NOT_CONFIGURED); other unassigned features remain PLANNED.
+
+Write new tests first, record/run them, implement and verify without initial test
+approval or a generic human-review checkpoint. Existing-test/effective-execution
+revisions require explicit scoped owner approval, including tests just written.
+Mark an assigned bounded task DONE when its outcome and required checks pass,
+evidence is recorded and memory updated. Local checks are legitimate evidence
+for their scope; do not require an unconfigured evaluator or call them independent.
+Do not drop checks or invent a subtask after failure to disguise unfinished work.
+
+Task status: PLANNED, IN_PROGRESS, DONE or BLOCKED. Each relevant check: PASS,
+FAIL or NOT_RUN with reason and evidence scope. AWAITING_OWNER_APPROVAL is only
+an actual authorization qualifier; AWAITING_REVIEW requires an explicitly assigned
+review or actually configured control. Owner action is None for completing a task
+unless a specific permission is genuinely required. Preserve assigned native/model,
+release, installation, dependency, policy and remote-operation rules.
+
+## Current bounded work and evidence
+
+| Task | Status | Evidence and remaining work |
+|---|---|---|
+| DOCS-003 | DONE | Documentation consistency, preserved controls/history, local links, prior evidence, exact scope/hashes and whitespace PASS. Application checks NOT_RUN this session; no review required. |
+| DT-001-TYPEFIX | DONE | Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265: typecheck PASS (0); original 22 + five new candidates PASS (0); integrity/whitespace PASS. Parent lint/discovery failures unchanged. |
+| DT-001 | IN_PROGRESS | Partially verified; lint FAIL (1), ordinary tests FAIL (1, zero files). Packaging/installer, actual native security/device checks and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
+| DT-000 | PLANNED | Separate infrastructure improvement; NOT_CONFIGURED; no blanket completion gate for unrelated local development. |
+
+Prior results are from [typefix](../validation/DT-001-typefix.md) and
+[baseline validation](../validation/DT-001-baseline.md); DOCS-003 does not rerun them.
+Next technical work is ISSUE-006 lint and ISSUE-007 ordinary discovery repair;
+protected revisions need separate exact authorization. Neither is started here.
+Do not start unassigned features. Technical requirements below remain unchanged.
+
+## Technical backlog and task-specific evidence
 
 | ID | Deliverable | Dependencies | Required evidence before DONE |
 |---|---|---|---|
@@ -18,6 +52,11 @@
 | DT-090 | macOS production adapter and release | DT-080 plus early Mac test evidence | Native permission/retina/sleep/tray tests; signing/notarization; validated supported architecture matrix. |
 
 DT-080 can be a clearly labeled local-only pilot without DT-070. It must not pretend to synchronise with a manager dashboard that has not been built. A connected production release requires DT-070 and a separately delivered server.
+
+## Historical status entries
+
+Dated entries below preserve their original wording; the current summary above
+and D-024 supply the superseding completion rule without rewriting history.
 
 ## 2026-11-10 bootstrap status
 
@@ -101,3 +140,33 @@ independent acceptance evidence remain open. See [report](../validation/DT-001-t
 Next owner action: review the local repair, then separately authorize the exact
 ISSUE-006 lint-config revision; ISSUE-007 discovery/expectation integration remains
 separate. Neither is started here. No installation, prompt storage or push.
+
+## 2026-11-10T03:39:46+05:00 — DOCS-003 completion/status correction
+
+**DOCS-003 — DONE.** Active rules and templates now allow new-test creation,
+implementation and ordinary bounded completion without a generic review gate.
+Explicit scoped approval still protects existing tests/effective execution,
+including tests written earlier in the same task. All task-specific checks,
+security, dependency/policy, owner-only installation/push and release rules remain.
+
+**DT-001-TYPEFIX — DONE; locally verified at
+cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265.** The unchanged local report/commit
+substantiate required typecheck/candidate/integrity criteria. This is a dated
+workflow/status correction, not a new verification run or independent review.
+Historical pending-review wording and original results remain preserved above.
+No other historical task is retroactively marked DONE and no tests are approved
+by this status correction.
+
+**DT-001 — IN_PROGRESS; partially verified.** Last recorded lint FAIL (1),
+ordinary discovery FAIL (1, no files); packaging/make/installed artifact, native
+security/device validation and required macOS evidence NOT_RUN. Prior Windows
+development observation remains limited. No parent failure is waived or hidden.
+DT-000 remains PLANNED/NOT_CONFIGURED as separate infrastructure work.
+
+Documentation consistency, local links, history/technical-requirement preservation,
+58 unrelated file hashes, prior-evidence/source attribution and git diff --check
+PASS (0). Application checks NOT_RUN this session (documentation only).
+Owner action: None for completing this task; no generic review required.
+Next technical tasks remain unassigned ISSUE-006 lint and ISSUE-007 discovery
+repairs, each needing exact protected-revision authorization. Neither started.
+No source/tests/fixtures/dependencies/configuration/CI change, installation or push.

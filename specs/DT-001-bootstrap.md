@@ -59,3 +59,31 @@ treat this checklist or component mocks as runtime acceptance.
 
 Owner/reviewer, contract hash/inventory, source baseline, permitted scaffolding,
 native harness, OS exclusions and evaluator location: PENDING. DT-000 remains open.
+
+## 2026-11-10T04:17:43+05:00 — B10 supersession: DT-001-DISCOVERY
+
+**Owner authorization:** explicit assignment of the external
+DT-001-DISCOVERY-default-test-integration.md task. The original revision 0.1 above,
+including its historical approval/delivery metadata, remains unchanged. This
+addendum supersedes only B10's candidate-exclusion/absent-approved-suite requirement
+and its related discovery description; all other acceptance cases remain intact.
+
+**Current B10:** unchanged npm test must execute tests/unit, tests/integration and
+tests/acceptance with their explicit `**/*.test.{ts,tsx}` patterns, plus existing
+scaffold checks with `test-candidates/**/*.candidate.test.{ts,tsx}`. Exclude only
+`node_modules/**`, `.webpack/**` and `out/**`; retain default Node environment and
+`passWithNoTests: false`. Keep the focused candidate configuration/command unchanged
+and its fail-on-zero safeguard. Preserve per-file environments, including jsdom.
+Do not move/copy suites or include helpers/build/hardware directories as suites.
+
+The one authorized B10 case now reads "B10 integrated default discovery / includes
+ordinary and scaffold tests while retaining zero-test failure", with the fourth
+include, exact excludes and Node assertions. Both prior fail-on-zero assertions
+and the focused exact include assertion remain. Other 42 existing cases are
+unchanged. Two new ordinary cases supplement the exact real-config contract;
+full execution inventories and a no-match run establish actual discovery.
+
+This is a scoped requirement revision, not blanket test-edit permission,
+independent test approval, retrospective bootstrap TDD or native verification.
+B11/B12 runtime/platform requirements remain unchanged. Results are recorded in
+[DT-001 discovery validation](../docs/validation/DT-001-discovery.md).

@@ -294,3 +294,21 @@ exact-delta/hash/whitespace checks PASS. ISSUE-007 remains FAIL (1, no files),
 outside this repair. Native/package/installer/AI/macOS checks NOT_RUN here.
 Historical failures retained; [evidence](../validation/DT-001-lintfix.md).
 No owner review needed for completion; next separate task is scoped ISSUE-007.
+
+## 2026-11-10T04:19:45+05:00 — ISSUE-007 — Default discovery verified and resolved
+
+**Task:** DT-001-DISCOVERY — DONE. **Status:** RESOLVED_LOCALLY.
+At 659fe8c931ef007062fb76879aeefccc3c1f066a, baseline npm test reproduced no files (exit 1), while
+typecheck/lint and 43 focused cases passed. Cause: ordinary includes omitted
+scaffold patterns and excluded their directory. Owner explicitly authorized the
+two config edits and exact B10 requirement revision, recorded before real red.
+Red ordinary default-contract assertion failed (1 fail/1 pass); revised B10
+failed in focused run, other 42 passed. After exact runner fix, typecheck/lint/
+default/focused all PASS (0): 45 default, 43 focused. Real JSON inventories verify
+42 unchanged identities + revised B10 + two new ordinary cases; no skips/duplicates.
+No-match control PASS (exit 1, actual no-files diagnostic). Initial inventory
+helper assumed unique display names and failed (1); three preload rows share
+one name, so retain ordinals and all rows. No tests/results were revised for that
+reporting correction. Full [evidence](../validation/DT-001-discovery.md).
+Parent packaging/native/platform gaps remain; no app/AI/macOS runtime checks.
+No owner review required, installation or push; no next task started.

@@ -1,7 +1,7 @@
 # Developer Work Tracker
 
-**DT-001: IN_PROGRESS; partially verified. DT-001-TYPEFIX: DONE; locally verified
-at cbc55c4.** Electron + React + strict TypeScript,
+**DT-001: IN_PROGRESS; partially verified. DT-001-TYPEFIX, DT-001-LINTFIX and
+DT-001-DISCOVERY: DONE with local evidence.** Electron + React + strict TypeScript,
 Electron Forge with Webpack. This is a static desktop shell. Tracking is not
 implemented, capture is off, AI is not configured and the app is local-only /
 not connected. All session controls are disabled. No time, screenshots, records
@@ -23,8 +23,8 @@ folder). After **you** run `npm i`:
 |---|---|
 | `npm run typecheck` | TypeScript checks for all source/candidates, pure shared code without Node/DOM, then renderer without Node globals. |
 | `npm run lint` | ESLint and hooks rules; zero warnings required. |
-| `npm run test:candidates` | Existing DT-001 Vitest / React Testing Library checks; local evidence, not independent/native acceptance. |
-| `npm test` | Ordinary suite discovery currently **fails on no tests**; candidate-suite integration requires a separately approved discovery change. |
+| `npm run test:candidates` | Focused existing scaffold suite under test-candidates/; currently 8 files / 43 cases. |
+| `npm test` | Default integrated run: ordinary unit/integration/acceptance patterns plus scaffold suites; currently 9 files / 45 cases. Fails on zero matching tests. |
 | `npm start` | Compile and open the static Electron window. Requires a graphical native OS. Development serves bundled UI on loopback; HMR/client/live reload are disabled. Restart after editing. |
 | `npm run package` | Build unpacked app for the host platform. No signing or runtime verification is implied. |
 | `npm run make` | Windows Squirrel installer on Windows; unsigned ZIP on macOS. Native maker prerequisites and artifact smoke tests are still required. |
@@ -35,10 +35,11 @@ obtained through the owner's installation. If a tool requests an additional
 download, the owner controls that action. No Linux maker or Linux support is
 claimed. The earlier DT-001-VERIFY report records a Windows development-window
 launch, metadata and close observation. Packaged/installed runtime, actual native
-security enforcement and macOS evidence remain outstanding. The typefix report
-records passing typecheck and 27 candidate cases; lint still has two CommonJS
-errors and ordinary discovery still finds no tests. These are prior runs, not
-new verification by this documentation change.
+security enforcement and macOS evidence remain outstanding. DT-001-DISCOVERY's
+2026-11-10 Windows-toolchain run passed aggregate typecheck, zero-warning lint,
+the default 45 cases and focused 43 cases; an explicit no-match run exited 1
+for no test files. See the [discovery report](validation/DT-001-discovery.md).
+These are local type/unit/component/jsdom checks, not native Electron evidence.
 
 ## Layout
 
@@ -56,7 +57,7 @@ src/
   workers/storage/      reserved single-writer storage process
   workers/analysis/     reserved image/inference worker
 tests/{unit,integration,acceptance,fixtures,hardware}/
-test-candidates/         proposed checks, outside ordinary discovery
+test-candidates/         existing scaffold suites, included in default and focused runs
 specs/                  proposed acceptance contracts
 docs/                   architecture, policies, toolchain and owner setup
 templates/              work, task and issue record templates
@@ -87,10 +88,12 @@ not omit checks or narrow scope after failure. An assigned repair can be DONE
 while its parent remains IN_PROGRESS with partial verification and visible gaps.
 Do not invent a smaller task to disguise unfinished assigned work.
 
-The candidate directory and discovery remain unchanged in this validation task.
-`npm test` cannot be called green because candidates pass or normal tests are
-absent. Integrating suites requires approval for the precise discovery/test
-execution change. DT-000 independent infrastructure remains a separately tracked
+The owner's DT-001-DISCOVERY assignment explicitly authorized integrating the
+existing scaffold directory into the default run and revising B10's obsolete
+exclusion requirement. The historical directory name creates no approval gate.
+Both routes retain failure on zero tests. Further existing-test or execution
+changes still require explicit scoped approval. DT-000 independent infrastructure
+remains a separately tracked
 improvement, not a substitute initial-approval or completion gate. Local checks
 do not establish independent evaluation. Native/model/release evidence remains
 mandatory in tasks that require it, along with actual configured controls.

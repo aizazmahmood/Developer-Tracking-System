@@ -190,3 +190,18 @@ revision is authorized; new test contents were recorded before red and unchanged
 Real ESLint negatives and exact config-byte comparison verify the limit; lint,
 typecheck and all 43 candidates pass locally. Ordinary discovery remains separate.
 See [report](../validation/DT-001-lintfix.md); nothing installed or pushed.
+
+## 2026-11-10T04:19:45+05:00 — D-026 — Owner-authorized default/focused test integration
+
+**Status:** OWNER_AUTHORIZED, locally verified in DT-001-DISCOVERY.
+Source: owner explicitly assigned the external default-test-integration prompt.
+Authorize only fourth scaffold include and removal of scaffold exclude in the
+default config; the specified single B10 label/expectation revision; new ordinary
+tests and narrowly related docs/B10 addendum/records. Record revised/new initial
+hashes before red; keep all other 42 cases and helpers unchanged. Retain exact
+ordinary directories, Node default, excludes and both fail-on-zero assertions.
+Focused config/command unchanged; no suites moved/copied. This supersedes the
+old candidate-only restriction, not historical results or other acceptance cases.
+No independent approval, generic review gate or further test-revision authority
+is implied. Default 45/focused 43 execute and pass; no-match safeguard retained.
+See [report](../validation/DT-001-discovery.md). Nothing installed or pushed.

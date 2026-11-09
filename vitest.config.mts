@@ -7,8 +7,9 @@ export default defineConfig({
       'tests/unit/**/*.test.{ts,tsx}',
       'tests/integration/**/*.test.{ts,tsx}',
       'tests/acceptance/**/*.test.{ts,tsx}',
+      'test-candidates/**/*.candidate.test.{ts,tsx}',
     ],
-    exclude: ['node_modules/**', '.webpack/**', 'out/**', 'test-candidates/**'],
+    exclude: ['node_modules/**', '.webpack/**', 'out/**'],
     passWithNoTests: false,
   },
 });

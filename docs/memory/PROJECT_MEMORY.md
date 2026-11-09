@@ -614,3 +614,93 @@ authorization. App/native/package/installer/AI/macOS checks NOT_RUN, out of scop
 no runtime readiness claimed. No dependencies installed, binaries downloaded,
 prompts stored, remotes changed or push. Review/stage explicit eight files and
 commit locally with configured Windows Git; report new hash after commit.
+
+## 2026-11-10T04:14:53+05:00 — DT-001-DISCOVERY initial revised/new test baseline
+
+Starting 659fe8c931ef007062fb76879aeefccc3c1f066a, main initially clean, matches reviewed 659fe8c.
+Owner explicitly assigned the external discovery task: authorize only default
+include append/candidate exclude removal, the stated B10 revision, new ordinary
+regressions, related docs/B10 addendum, memory/report and local commit. No other
+existing test/helper/configuration change or installation/push is authorized.
+Before any edits, typecheck/lint/candidates PASS (0); candidates 8 files/43 cases.
+Ordinary npm test FAIL (1, no files), expected ISSUE-007. Native Windows Node
+v22.19.0/win32 x64, npm 11.14.1, Vitest 5.1.0; WSL2 orchestration. Captured all
+72 tracked-file contents/hashes and real baseline JSON execution identities
+(including parameterized cases) outside tracked files; no initial test gate.
+
+Initial revised/new contents recorded before first red run and config edit:
+
+- `test-candidates/discovery.candidate.test.ts` SHA-256 `11c959b6df968a56883d3667eb16a4f612c873ee7be851127341bcfb710ae9cb`.
+- `tests/unit/discovery-integration.test.ts` SHA-256 `5d1f48a3d2f3f37da3680b71a444e93ab706a0a9efc87d27385b487fb5d02fa8`.
+
+B10 identity changes from "B10 explicit discovery (PROPOSED) / keeps candidates
+out of ordinary discovery and fails on zero approved tests" to "B10 integrated
+default discovery / includes ordinary and scaffold tests while retaining zero-test
+failure". Added only fourth include expectation, exact exclude/node assertions
+and renamed approved to standard; both fail-on-zero assertions and focused include
+assertion remain. Other 42 cases and every other existing test remain unchanged.
+Two new ordinary cases require exact integrated default options and unchanged
+focused options, using literal expectations and real configs. Expectations are
+now fixed. Configuration is still original; next run both commands for genuine
+red before exactly the two authorized runner edits. No further test revision.
+
+### 2026-11-10T04:15:42+05:00 — DT-001-DISCOVERY red evidence before runner edits
+
+Unchanged npm test FAIL (1): new ordinary file runs, one actual default-contract
+assertion fails for missing scaffold include/extra candidate exclude; focused
+contract passes (1 fail/1 pass). Unchanged focused command FAIL (1): revised B10
+fails at missing fourth include; all other 42 cases pass (8 files, 43 cases).
+No parse/import failure or empty suite is used as red evidence. Revised/new test
+hashes and original runner configuration are unchanged from their fixed baselines.
+Baseline JSON has two colliding display names for parameterized preload cases;
+an initial inventory-helper uniqueness assertion failed (1). Preserve all rows
+with file-local assertion ordinal, rather than discarding or renaming any case.
+This corrects the report helper only; no tests or baseline results changed.
+Next: exactly append include and remove candidate exclude; verify real execution
+and no-match safeguard, including complete parameterized identity accounting.
+
+## 2026-11-10T04:19:45+05:00 — DT-001-DISCOVERY completion
+
+**Status:** DONE. Starting 659fe8c931ef007062fb76879aeefccc3c1f066a, main initially clean. Explicit
+owner scope and revised/new fixed test hashes recorded above. Changed only default
+include/exclude, authorized B10, new ordinary two-case file, scoped README/policy
+section 10/spec B10 addendum, report and five canonical records (13 paths).
+D-026 records authority; ISSUE-007 resolved locally. No other old test/helper,
+focused config, source, build/lint/TS settings, dependencies or scripts changed.
+
+Actual Windows cmd.exe /c baseline commands: typecheck/lint/candidates PASS (0,
+focused 43), npm test FAIL (1, no files). Tests-first red: npm test FAIL (1,
+1 fail/1 pass); focused FAIL (1, B10 fail/42 pass). After exact runner edits all
+four full commands PASS (0): aggregate typecheck, lint, default (9 files/45 cases),
+focused (8/43). Additional unfiltered JSON executions PASS (0); compared every
+file/declaration ordinal/name, preserving 42 unchanged cases and mapping B10 once,
+plus two new ordinary cases. No skips/todos or helper/build/hardware suites.
+Negative npm test -- __DT001_DISCOVERY_NO_MATCH_659fe8c__ PASS safeguard with actual
+exit 1 for no matching files, token absent from test paths. No flags softened.
+
+Initial inventory-helper unique-name assertion FAIL (1); three unchanged preload
+rows share one truncated name (two collisions). Corrected report accounting to
+retain ordinals, not deduplicate or rename tests. All fixed tests and results
+unchanged. Exact runner implementation passed first attempt; no other failures.
+Content/history checks PASS: 61 unrelated original files byte-identical; original
+spec prefix, test-policy sections 1–9 and memory/TASKS history retained; revised/
+new tests match initial hashes. Local links/whitespace are verified before commit;
+[report](../validation/DT-001-discovery.md) contains full inventory/results/limits.
+
+Parent DT-001 remains IN_PROGRESS for packaging/installation, native Windows and
+required platform evidence. Prior DOCS-003/TYPEFIX/LINTFIX remain DONE. App launch,
+package/installer/native-security/AI/macOS NOT_RUN/out of scope. No independent
+evaluation, retrospective bootstrap TDD or runtime readiness claimed. Owner action:
+None for completion; next unassigned parent work needs a new bounded assignment.
+No install/download, prompt storage, remote change or push. Review/stage named
+paths and commit locally with configured Windows Git; report new hash in handoff.
+
+### 2026-11-10T04:21:13+05:00 — Final discovery integrity/documentation review
+
+Dependency-free exact-scope/content/history/reporter checks PASS (0): 13 authorized
+paths, 61 unrelated originals unchanged, both fixed test hashes intact, original
+spec prefix and policy sections 1–9 preserved. Actual inventories have zero pending/
+todo/failed cases. All 23 touched local Markdown links resolve. Working whitespace
+PASS (git diff --check, 0). Full intended source/documentation diff reviewed;
+remaining work is staged-byte/scope review and local commit. No tests rerun after
+these documentation-only edits; tested executable/config bytes remain unchanged.

@@ -204,9 +204,16 @@ A session interrupted before completion still records its attempts and blockers.
 
 ## 10. Existing scaffold suites
 
-The existing test-candidates/ directory and current discovery remain unchanged
-until a separately authorized integration change. Their names do not create an
-initial approval or candidate-promotion requirement. Empty ordinary discovery
-must still fail. Changing existing discovery/configuration or test execution
-requires explicit approval; writing genuinely new tests under a later assigned
-test/feature task does not. Historically, DT-001-VERIFY changed no executable tests.
+The owner's DT-001-DISCOVERY assignment authorizes the existing scaffold suites
+under test-candidates/ in the default npm test run alongside the explicit ordinary
+unit/integration/acceptance patterns. npm run test:candidates remains the unchanged
+focused route. The historical directory name creates no initial approval or
+candidate-promotion gate. Both configurations retain passWithNoTests: false;
+zero matching tests must fail. The dated B10 addendum records the superseded
+exclusion requirement without rewriting the original bootstrap specification.
+
+Further changes to existing tests, discovery/configuration or effective execution
+still require explicit scoped owner approval, including tests written earlier in
+the same task. Writing genuinely new independent tests under an assigned task
+needs no initial approval. Local executions establish only their stated scope,
+not independent/native acceptance. Historically, DT-001-VERIFY changed no tests.

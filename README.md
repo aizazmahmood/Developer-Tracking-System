@@ -1,0 +1,94 @@
+# Developer Work Tracker
+
+**DT-001: SCAFFOLDED_NOT_VERIFIED.** Electron + React + strict TypeScript,
+Electron Forge with Webpack. This is a static desktop shell. Tracking is not
+implemented, capture is off, AI is not configured and the app is local-only /
+not connected. All session controls are disabled. No time, screenshots, records
+or descriptions are created. Windows is the first intended target; macOS is later.
+
+## Owner setup and commands
+
+Use a native Windows terminal in this folder with Node **22.19.0** and npm
+**11.14.1** (the inspected build tools). The owner runs `npm i` and reviews the
+resulting lockfile; no dependencies have been installed by the bootstrap agent.
+See `docs/TOOLCHAIN.md` for metadata checks and compatibility limits. Electron's
+embedded Node is separate from the build Node. No global Forge, Vitest or compiler
+installation is needed.
+
+After **you** run `npm i`:
+
+| Command | Purpose / prerequisite |
+|---|---|
+| `npm run typecheck` | TypeScript checks for all source/candidates, pure shared code without Node/DOM, then renderer without Node globals. |
+| `npm run lint` | ESLint and hooks rules; zero warnings required. |
+| `npm run test:candidates` | Proposed DT-001 Vitest / React Testing Library checks. NOT approved acceptance. |
+| `npm test` | Ordinary approved-suite discovery. Currently expected to **fail on no tests**; no approved tests exist. |
+| `npm start` | Compile and open the static Electron window. Requires a graphical native OS. Development serves bundled UI on loopback; HMR/client/live reload are disabled. Restart after editing. |
+| `npm run package` | Build unpacked app for the host platform. No signing or runtime verification is implied. |
+| `npm run make` | Windows Squirrel installer on Windows; unsigned ZIP on macOS. Native maker prerequisites and artifact smoke tests are still required. |
+
+No custom installation hooks, publishing, automatic updates or signing
+credentials are configured. Start/package/make need the Electron binary already
+obtained through the owner's installation. If a tool requests an additional
+download, the owner controls that action. No Linux maker or Linux support is
+claimed. No Windows/macOS launch or packaging has been verified.
+
+## Layout
+
+```text
+src/
+  main/                 Electron lifecycle, read-only metadata and restrictions
+  preload/              sandbox-bundled, typed getAppMetadata bridge
+  renderer/             static React interface
+  contracts/            pure metadata types and response validation
+  core/                 reserved for approved domain work
+  application/          reserved for approved use cases/ports
+  adapters/             reserved for infrastructure
+  platform/windows/     reserved Windows adapters
+  platform/macos/       reserved macOS adapters
+  workers/storage/      reserved single-writer storage process
+  workers/analysis/     reserved image/inference worker
+tests/{unit,integration,acceptance,fixtures,hardware}/
+test-candidates/         proposed checks, outside ordinary discovery
+specs/                  proposed acceptance contracts
+docs/                   architecture, policies, toolchain and owner setup
+templates/              work, task and issue record templates
+```
+
+The renderer receives no raw IPC, filesystem, SQL, credentials or network bridge.
+Main validates metadata arguments, owner webContents, main frame and document
+URL. The configured sandbox, isolation, navigation/permission denials and CSP
+require actual Electron verification; source inspection cannot prove runtime
+enforcement. No workers or OS adapters are started.
+
+## Approval and later work
+
+`specs/DT-001-bootstrap.md` revision 0.1 and `test-candidates/` are **PROPOSED**.
+No genuine red/green run or independent acceptance has occurred. `npm test`
+cannot be called green because candidate tests pass or approved tests are absent.
+DT-000 remains pending. Owner-controlled approval, frozen contracts, repository
+permissions and the external evaluator in `docs/OWNER_SETUP.md` are not established.
+
+DT-002 must validate native SQLite packaging/ABI and packaged utility-process
+paths before storage implementation. There is no better-sqlite3 or Ollama
+dependency here. Timer, persistence, capture, inference, sync, tray and updater
+work are outside this bootstrap. Future features need independently reviewed
+contracts and meaningful behavioural red evidence before implementation.
+
+## Planning pack and durable records
+
+The original planning pack was prepared on 9 November 2026. Its architecture,
+policies, release plan, source references and templates remain planning evidence,
+not proof of implementation or protection enforcement. Source locations:
+
+1. `AGENTS.md` — working rules and bootstrap exception.
+2. `docs/ARCHITECTURE.md` — saved architecture, preserved unchanged.
+3. `docs/TEST_POLICY.md` — proposed protected test-first workflow, unchanged.
+4. `docs/RELEASE_PLAN.md` and `docs/SOURCES.md` — proposed delivery and references.
+5. `TASKS.md`, `specs/DT-010-timer.md` — backlog and future timer example.
+6. `CURRENT_STATE.md`, `PROJECT_MEMORY.md`, `ISSUES.md`, `DECISIONS.md` — state/history.
+7. `CODEX_BOOTSTRAP_PROMPT.md` — actual bootstrap handoff (the planning README
+   previously referred to a differently named file).
+
+Local commits are permitted; every push belongs to the owner. No real staff
+evidence belongs in this repository.

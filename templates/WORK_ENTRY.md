@@ -26,3 +26,8 @@
 **Next exact task/action:**
 
 A completion entry must not claim DONE without independent acceptance. Append a later revision/PR reference when needed; do not invent future commit hashes.
+
+Canonical records: [work history](../docs/memory/PROJECT_MEMORY.md),
+[issues](../docs/memory/ISSUES.md), [decisions](../docs/memory/DECISIONS.md),
+[current state](../docs/memory/CURRENT_STATE.md) and [tasks](../docs/memory/TASKS.md).
+Follow [root instructions](../AGENTS.md); keep commands relative to the repository root.

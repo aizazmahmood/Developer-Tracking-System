@@ -13,11 +13,11 @@ exception authorizes only an unverified static scaffold.
 3. Run `npm i` yourself with the documented build tool versions. Review generated
    `package-lock.json`, install output and lifecycle downloads. The agent has
    not installed packages, created a lockfile or downloaded Electron/models.
-4. Run the README checks and review every result. Empty approved-suite discovery
+4. Run the [documentation-index checks](README.md) and review every result. Empty approved-suite discovery
    must be a failure. Resolve dependency/build failures explicitly; they are
    not behavioural red evidence. Record Windows launch/package results and
    separate macOS results. An unsigned ZIP/installer is not release approval.
-5. Review `specs/DT-001-bootstrap.md` revision 0.1 and each candidate test. Choose
+5. Review [specs/DT-001-bootstrap.md](../specs/DT-001-bootstrap.md) revision 0.1 and each candidate test. Choose
    additional independent cases and a real Electron/native harness. Freeze
    contract, fixtures, discovery, toolchain, baseline and allowed scaffolding
    outside the implementation identity's control. Record reviewer identity/date,
@@ -39,4 +39,4 @@ exception authorizes only an unverified static scaffold.
 Preserve successful/failed runs with exact source/contract revision, commands,
 environment, outcomes and artifact identity. Candidate checks are review aids,
 not independent acceptance. DT-001 cannot be DONE until required native/platform
-evidence and independent approval exist. See `TEST_POLICY.md`.
+evidence and independent approval exist. See [TEST_POLICY.md](TEST_POLICY.md).

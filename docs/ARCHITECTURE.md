@@ -174,12 +174,16 @@ Native SQLite packaging/ABI mismatch; permission and capture differences across 
 ```text
 desktop-tracker/
   AGENTS.md
-  CURRENT_STATE.md
-  PROJECT_MEMORY.md
-  ISSUES.md
-  DECISIONS.md
-  TASKS.md
   docs/
+    README.md
+    memory/
+      CURRENT_STATE.md
+      PROJECT_MEMORY.md
+      ISSUES.md
+      DECISIONS.md
+      TASKS.md
+    prompts/
+      CODEX_BOOTSTRAP_PROMPT.md
   specs/
   src/
     main/

@@ -115,7 +115,7 @@ Model/prompt changes rerun the corpus. Repeated-run variability and limitations 
 
 ## 9. Memory and task-completion gate
 
-Every code task adds an append-only PROJECT_MEMORY entry and updates CURRENT_STATE. New failures receive ISSUE entries with reproduction, attempted approaches, root cause status, solution and regression evidence. The gate checks required fields and references, while the evaluator—not self-reported Markdown—establishes pass/fail.
+Every code task adds an append-only [PROJECT_MEMORY](memory/PROJECT_MEMORY.md) entry and updates [CURRENT_STATE](memory/CURRENT_STATE.md). New failures receive [ISSUES](memory/ISSUES.md) entries with reproduction, attempted approaches, root cause status, solution and regression evidence. The gate checks required fields and references, while the evaluator—not self-reported Markdown—establishes pass/fail.
 
 Definition of DONE: approved acceptance contract; meaningful red evidence where applicable; verified green for required tests at the exact candidate; no unapproved protection changes; required native/model evidence; memory/issues updated; documented residual limits; independent reviewer approval. Use NOT_RUN, BLOCKED or IMPLEMENTED_PENDING_REVIEW otherwise.
 

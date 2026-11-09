@@ -23,7 +23,7 @@ This file is the durable log of **all development tasks and work sessions**, inc
 
 ## Required entry format for future work
 
-Use `templates/WORK_ENTRY.md`. Each entry must include task ID, author, timestamp, starting revision, approved contract revision, acceptance criteria, changed files, actual test commands and outcomes, issue/solution references, remaining gaps and next action. Link the resulting commit or PR from a later entry when it does not yet exist; never fabricate a self-referential commit SHA.
+Use [the work-entry template](../../templates/WORK_ENTRY.md). Each entry must include task ID, author, timestamp, starting revision, approved contract revision, acceptance criteria, changed files, actual test commands and outcomes, issue/solution references, remaining gaps and next action. Link the resulting commit or PR from a later entry when it does not yet exist; never fabricate a self-referential commit SHA.
 
 Preserve one task's attempts as separate entries. A later successful run does not erase earlier failures. When the file becomes large, keep this index and move historical entries into dated, version-controlled Markdown archives through a reviewed change; retain links and never discard history. `CURRENT_STATE.md` remains the small entry point.
 
@@ -137,3 +137,115 @@ handling of existing Markdown hard breaks. No independent approval was given.
 Windows terminal, review generated lockfile, run README checks (npm test must
 currently fail on no approved tests), review contract and configure DT-000.
 No feature work beyond the static scaffold is authorized by this bootstrap.
+
+## 2026-11-10T01:46:53+05:00 — DOCS-001 — Canonical documentation layout
+
+**Author/session:** Codex, owner-assigned documentation-only reorganisation.
+**Status:** IMPLEMENTED_PENDING_REVIEW (no independent self-approval).
+**Starting Git revision:** ed096d20b5bb7bb2b9c958adb182a2edf62854bd, branch main tracking origin/main.
+**Assigned specification/authorization:** Owner asked to execute the revised
+CODEX_BOOTSTRAP_PROMPT.md; its current bytes are preserved in
+[docs/prompts/CODEX_BOOTSTRAP_PROMPT.md](../prompts/CODEX_BOOTSTRAP_PROMPT.md).
+**Test-contract approval:** PENDING for application work; this task authorizes
+only documentation moves, reference updates and limited AGENTS organisation.
+**Starting changes:** Only the owner's revised prompt was modified. Existing
+commit and package-lock/node_modules were observed, not created by this session.
+
+### Path migration (paths relative to the repository root)
+
+| Old path | New canonical path |
+|---|---|
+| CURRENT_STATE.md | docs/memory/CURRENT_STATE.md |
+| PROJECT_MEMORY.md | docs/memory/PROJECT_MEMORY.md |
+| ISSUES.md | docs/memory/ISSUES.md |
+| DECISIONS.md | docs/memory/DECISIONS.md |
+| TASKS.md | docs/memory/TASKS.md |
+| README.md | docs/README.md |
+| CODEX_BOOTSTRAP_PROMPT.md (owner's current content) | docs/prompts/CODEX_BOOTSTRAP_PROMPT.md |
+
+The obsolete original bootstrap prompt was archived verbatim from the starting
+commit into docs/prompts/archive/CODEX_BOOTSTRAP_PROMPT.bootstrap.md. It was not
+executed. Historical old paths, captured commands, approval evidence and the
+unchanged bootstrap spec describe the earlier layout. The old bootstrap spec's
+prompt reference resolves to this archived original, not today's DOCS prompt.
+The index migration map documents this distinction. No root copies remain.
+
+**Files/active instructions changed:** Root AGENTS startup/logging paths and a
+concise organisation section; docs/README index/relative links and repository-root
+command context; architecture layout diagram; test-policy memory links only;
+owner-setup links; template canonical-record links; five canonical memory records.
+No rule about tests/approval/security/install/push was weakened. Only the two
+active template links in memory preambles changed; dated history is retained.
+
+### Checks defined before moving, and actual outcomes
+
+A temporary Python standard-library verifier and baseline were written to /tmp
+before the moves (not committed, not an acceptance evaluator). Checks cover
+canonical files/no duplicates, original historical text preservation, protected
+file hashes, prompt contents and local relative link targets. No checker installed.
+
+| Command/check | Actual exit/result |
+|---|---|
+| git rev-parse --show-toplevel; git status --short --branch; git log -5 --oneline | 0 each; existing repo/main, starting revision above; only owner prompt dirty |
+| Required AGENTS/architecture/policy/memory/prompt reads and rg reference discovery | Read and inspected actual files; no tooling dependency on moved paths found |
+| rg DOCS task IDs excluding assigned prompt | 1, no existing DOCS task; used DOCS-001 |
+| One rg query with a literal '*config*' filename | 2 (nonexistent literal path); corrected repository-wide excluded-generated-files scan exited 0 |
+| Python preflight/baseline snapshot | 0; all 7 sources exist, no destination conflict, hashes of 65 tracked files captured |
+| python3 -m py_compile /tmp/docs-001-verify.py | 0, syntax check for predefined temporary verifier |
+| Seven explicit git mv calls | 0 each via authorized .git escalation; no branch/history/remote operation |
+| python3 /tmp/docs-001-verify.py (scoped project discovery) | 0; canonical layout, retained histories/prompts, unchanged source/tests/config/lock/specs; 77 relative link targets passed before this entry |
+| Python AGENTS preservation comparison | 0; existing text matches baseline after only allowed startup/path substitutions; new organisation section separately inspected |
+| git diff --check | 0 / PASS |
+| git diff HEAD --check | 0 / PASS against the actual starting commit |
+| git diff HEAD --stat --find-renames | 0; documentation-only changes inspected; final staged rename review follows |
+| git diff --name-only HEAD -- src tests test-candidates specs package.json package-lock.json .gitignore .editorconfig forge.config.cjs webpack.main.config.cjs webpack.renderer.config.cjs eslint.config.mjs tsconfig.json tsconfig.renderer.json tsconfig.shared.json vitest.config.mts vitest.candidates.config.mts | 0, empty: no application/protection/toolchain changes |
+| git config --get user.name; git config --get user.email | 1 / 1, neither configured; ISSUE-002 still blocks committing |
+| Application typecheck/lint/candidate/approved tests, launch and packaging | NOT_RUN — documentation-only task; no application behaviour changed |
+
+An initial verifier invocation scanned installed third-party directories too
+broadly; project discovery was limited to exclude node_modules/.git/build output
+and the scoped verifier completed with exit 0. No production test/config was
+changed to do this. Link checks validate target existence, not external URLs,
+anchor semantics, application behaviour or independent enforcement.
+
+**Issues/decisions:** Existing ISSUE-002 remains OPEN; ISSUE-003 presence
+observation appended; ISSUE-004 old import whitespace evidence retained. No
+move conflicts, protected tooling changes or new application defects found.
+Owner-requested layout recorded as D-020; implementation review PENDING.
+**Git/remaining work:** All work is local; requested commit blocked by absent
+configured identity. Final staged review will be appended below. No hooks,
+safeguards or history bypassed; no commit hash invented. No dependencies installed,
+no remote changed, nothing pushed.
+**Next:** Owner reviews DOCS-001 and configures intended Git identity for the local
+commit. DT-000 stays pending; DT-001 remains SCAFFOLDED_NOT_VERIFIED. Stop after
+this documentation task; no feature development or stored bootstrap execution.
+
+### 2026-11-10T01:49:08+05:00 — DOCS-001 final review and identity correction
+
+Starting revision remains ed096d2; status IMPLEMENTED_PENDING_REVIEW. Explicit
+named-path staging exited 0. `git diff --cached --check`, `git diff --check`,
+staged summary/stat with rename detection, and staged AGENTS/policy/layout/template
+review all exited 0. The original bootstrap prompt is a 100% rename to the archive;
+current owner prompt is preserved separately. Git displays CURRENT_STATE as a
+removal/addition because its current summary was refreshed; the intended move
+was performed with git mv, and prior historical memory is intact. The five memory
+locations and documentation index have no duplicate root copies.
+
+The updated temporary verifier exited 0 with 78 working relative link targets;
+all protected/application file hashes matched the pre-move baseline. The original
+unscoped verifier subsequently returned exit 1 at its instruction-file inventory
+assertion after traversing installed third-party files. This was a verifier
+scope error, not application/test failure or new project instructions. Its scoped
+replacement excludes dependency/generated trees and passed. No repository tests
+or configuration were edited to address it.
+
+**Correction to commit blocker:** Linux Git's missing identity remains real.
+The existing Windows Git executable was then found; its configured user.name
+and user.email read-only queries each exited 0 using authorized escalation.
+This supplies an already configured author for the requested local commit,
+without inventing identity, changing settings or bypassing hooks/signatures.
+ISSUE-002 has a Windows Git workaround; earlier blocked observations are retained
+as session history. Final source/docs checks and this entry will be staged before
+committing. Commit hash is reported in the handoff rather than self-referenced.
+No dependencies installed, no remotes changed, nothing pushed. Owner review and
+all earlier feature acceptance/runtime work remain pending.

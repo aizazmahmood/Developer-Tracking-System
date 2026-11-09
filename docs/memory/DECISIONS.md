@@ -42,3 +42,22 @@ Initial pins/config were created under the bootstrap authorization. These entrie
 are not independent approval of future changes to the now-created toolchain or
 protected configuration. No timers, storage/model dependencies or hosted services
 were added. No prior decision/approval record was altered.
+
+## 2026-11-10 — D-020 — Owner-requested canonical documentation layout
+
+**Status:** OWNER_REQUESTED for DOCS-001; implementation review PENDING.
+**Evidence:** Owner asked to read and execute the revised
+[stored documentation prompt](../prompts/CODEX_BOOTSTRAP_PROMPT.md), whose explicit
+authorization permits documentation moves, reference updates and limited root
+AGENTS.md path/organisation changes.
+
+Canonical locations: general docs in docs/, five memory files in docs/memory/,
+current prompts in docs/prompts/, obsolete prompts in docs/prompts/archive/.
+AGENTS.md remains the only root instruction file; build/tool paths stay in place.
+The original bootstrap prompt was recovered verbatim from `ed096d2` into the
+archive; its replacement was preserved as the current documentation prompt.
+[The index](../README.md#docs-001-path-migration) maps earlier locations.
+
+This authorizes organisation only. It grants no feature-contract acceptance,
+weaker tests/security/approval rules, dependency changes, remote writes or push.
+Existing decision and approval records above are preserved, including old paths.

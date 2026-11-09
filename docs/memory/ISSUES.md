@@ -12,7 +12,7 @@
 
 Record every build, runtime, dependency, packaging, test, performance or AI-output problem encountered during implementation. Repeated instances may share an issue ID with dated updates. Include unsuccessful approaches so later sessions do not repeat them. Do not call an assumed cause a confirmed root cause. Distinguish WORKAROUND, FIX_IMPLEMENTED, VERIFIED and REOPENED.
 
-Use `templates/ISSUE_ENTRY.md`. Each update is dated and appended. Link issues from the task's `PROJECT_MEMORY.md` entry. Never put secrets or actual staff captures in reproduction material; create sanitized fixtures.
+Use [the issue-entry template](../../templates/ISSUE_ENTRY.md). Each update is dated and appended. Link issues from the task's `PROJECT_MEMORY.md` entry. Never put secrets or actual staff captures in reproduction material; create sanitized fixtures.
 
 Design risks that have not occurred belong in the architecture/release plan, not in a fabricated incident entry.
 
@@ -82,3 +82,38 @@ Full check remains FAIL until the owner decides how to handle original Markdown
 hard breaks. No Git whitespace configuration or mandatory check was weakened.
 **Verification:** Final full and scoped staged checks are recorded in the
 subsequent PROJECT_MEMORY closing entry. This is not an application runtime bug.
+
+## 2026-11-10 — DOCS-001 observations and existing-issue updates
+
+**Starting revision/environment:** ed096d2, main, existing Linux/WSL workspace.
+**ISSUE-002 remains OPEN:** `git config --get user.name` and
+`git config --get user.email` each exited 1 with no value again. The owner's
+existing commit is real, but does not establish configured identity for this
+Git process. No identity was inferred or changed; local commit remains blocked.
+Owner must configure intended identity before the requested commit can be made.
+
+**ISSUE-003 prerequisite observation supersedes earlier absence:** node_modules
+and package-lock.json are now present at this session's start. This task did not
+install packages or change the lockfile. Presence does not establish dependency
+health or passing application checks; those checks were NOT_RUN here.
+
+**ISSUE-004 historical whitespace evidence retained:** earlier diagnostics refer
+to the initial unborn-repository import. DOCS-001 checks the documentation delta
+against ed096d2; current results appear in work history. No original hard-break
+formatting, Git whitespace configuration or mandatory checks were changed to
+hide the earlier failure.
+
+No move conflicts or tooling dependencies on old document locations were found.
+The bootstrap spec's old prompt reference is historical evidence, preserved
+unchanged and resolved by [the migration map](../README.md#docs-001-path-migration)
+and archived original prompt. No new application defect or independent approval
+is inferred from this documentation cleanup.
+
+### 2026-11-10T01:49:08+05:00 — ISSUE-002 Windows Git workaround
+
+The preceding DOCS-001 blocked assessment applies to Linux Git. Read-only
+checks of the already-installed Windows Git returned exit 0 for both configured
+user.name and user.email. No identity was invented, copied into settings or
+changed. The authorized local commit can use this existing Windows Git identity;
+Linux Git remains unconfigured. State: WORKAROUND_AVAILABLE, commit result to be
+reported in the handoff. No hooks, signing or permissions are bypassed.

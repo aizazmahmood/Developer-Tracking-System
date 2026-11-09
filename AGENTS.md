@@ -14,9 +14,11 @@ Do not build the manager dashboard or production server in desktop tasks.
 
 ## 2. Start every session
 
-Read this file, the architecture, `CURRENT_STATE.md`, `TASKS.md`,
-`docs/TEST_POLICY.md`, and the assigned specification. Read relevant entries in
-`PROJECT_MEMORY.md`, `ISSUES.md` and `DECISIONS.md`. Inspect actual files, Git
+Read `AGENTS.md`, `docs/ARCHITECTURE.md`,
+`docs/memory/CURRENT_STATE.md`, `docs/memory/TASKS.md`,
+`docs/TEST_POLICY.md`, and the assigned task specification. Read relevant entries
+in `docs/memory/PROJECT_MEMORY.md`, `docs/memory/ISSUES.md` and
+`docs/memory/DECISIONS.md`. Inspect actual files, Git
 status, branch and recent commits; memory documents are not proof of current
 behaviour. Treat missing files as missing, not as already approved plans.
 
@@ -148,13 +150,13 @@ by later AI output. Keep secrets and raw staff evidence out of Git and memory.
 
 For every work session, including blocked or partial work:
 
-- Append to `PROJECT_MEMORY.md`: timestamp, task ID, starting revision,
+- Append to `docs/memory/PROJECT_MEMORY.md`: timestamp, task ID, starting revision,
   approved contract reference or PENDING, changes/files, decisions, commands,
   actual outcomes/exit codes, issue IDs, remaining work and next action.
-- Update `CURRENT_STATE.md` and `TASKS.md` with the actual state and next step.
-- Record encountered issues in `ISSUES.md`: symptom, reproduction, environment,
+- Update `docs/memory/CURRENT_STATE.md` and `docs/memory/TASKS.md` with the actual state and next step.
+- Record encountered issues in `docs/memory/ISSUES.md`: symptom, reproduction, environment,
   failed attempts, known or suspected cause, solution, verification and status.
-- Record architectural proposals in `DECISIONS.md`; distinguish proposed from
+- Record architectural proposals in `docs/memory/DECISIONS.md`; distinguish proposed from
   approved. Preserve the evidence of any real owner approval.
 
 Append corrections instead of erasing historical memory/issues. Current-state
@@ -175,3 +177,16 @@ commits created, remaining blockers and the next owner action. Distinguish
 candidate tests from approved acceptance tests. State that nothing was pushed.
 Do not claim Windows/macOS runtime behaviour, packaging, protection enforcement
 or AI quality has been verified without the corresponding evidence.
+
+## 9. Repository organisation
+
+Keep AGENTS.md as the single root project-instructions file. Do not recreate
+root-level memory or project-documentation files: memory belongs in
+`docs/memory/`, general documentation in `docs/`, and stored prompts in
+`docs/prompts/`. Build/tool files retain their required or established locations.
+Do not create nested AGENTS.md files, overrides or duplicate instructions.
+
+Read and update the canonical memory files explicitly as instructed above;
+Codex does not automatically load every Markdown file under docs/. Stored
+prompts are reference material unless the owner explicitly assigns one; archived
+prompts are historical evidence. The documentation index is `docs/README.md`.

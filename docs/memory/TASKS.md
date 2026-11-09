@@ -33,3 +33,21 @@ DT-080 can be a clearly labeled local-only pilot without DT-070. It must not pre
 - **Next:** owner configures Git identity, runs `npm i`, reviews lockfile and runs
   the README commands; independently reviews contract and sets up DT-000.
   This exception does not authorize proceeding to DT-002 or timer implementation.
+
+## 2026-11-10 — DOCS-001 documentation migration
+
+**Status:** IMPLEMENTED_PENDING_REVIEW. Owner explicitly assigned the revised
+[documentation prompt](../prompts/CODEX_BOOTSTRAP_PROMPT.md). Moved the five memory
+files here, root README to [docs/README.md](../README.md), and current prompt into
+docs/prompts/. Root AGENTS.md is the only loose root Markdown instructions file.
+Updated active links, architecture layout and templates; historical entries and
+prior task statuses remain unchanged. Earlier path strings refer to the old
+layout; [the migration map](../README.md#docs-001-path-migration) is canonical.
+
+Dependency-free layout/history/link/hash checks and diff review are recorded in
+[work history](PROJECT_MEMORY.md). Application checks NOT_RUN (documentation only).
+Linux Git identity was absent (ISSUE-002); subsequent Windows Git checks found
+the existing configured identity, permitting the authorized local commit without
+configuration changes. Review remains pending; no independent approval is implied.
+Next: owner reviews migration and its local commit. No dependency
+installation, remote change or push performed; no feature work is part of DOCS-001.

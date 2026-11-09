@@ -205,3 +205,14 @@ old candidate-only restriction, not historical results or other acceptance cases
 No independent approval, generic review gate or further test-revision authority
 is implied. Default 45/focused 43 execute and pass; no-match safeguard retained.
 See [report](../validation/DT-001-discovery.md). Nothing installed or pushed.
+
+## 2026-11-10T04:49:24+05:00 — D-027 — Owner delegates the normal Windows make run
+
+**Status:** EXPLICIT_OWNER_AUTHORIZATION for this DT-001-WINPACKAGE run.
+After Codex requested the prompt's owner build output, owner replied exactly
+"run it yourself". This overrides the earlier owner-only make restriction for
+the normal win32/x64 make command and its ordinary prerequisite/checksum fetches.
+It does not authorize npm installation/update, source/config/test/procedure changes,
+security bypass, installer execution, signing, publishing or push. Make exited 0;
+packaged smoke completed with local evidence and explicit remaining limits.
+See the dated completion entry in [report](../validation/DT-001-winpackage.md).

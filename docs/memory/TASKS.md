@@ -1,7 +1,7 @@
 # Task Backlog
 
 **DT-001 — IN_PROGRESS; partially verified. DT-001-TYPEFIX — DONE; locally verified
-at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE. DT-001-LINTFIX — DONE. DT-001-DISCOVERY — DONE.**
+at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE. DT-001-LINTFIX — DONE. DT-001-DISCOVERY — DONE. DT-001-WINPACKAGE — DONE.**
 DT-000 is PLANNED (infrastructure NOT_CONFIGURED); other unassigned features remain PLANNED.
 
 Write new tests first, record/run them, implement and verify without initial test
@@ -23,18 +23,22 @@ release, installation, dependency, policy and remote-operation rules.
 
 | Task | Status | Evidence and remaining work |
 |---|---|---|
+| DT-001-WINPACKAGE | DONE | Owner delegated make; Windows x64 package/Squirrel outputs PASS (0), ASAR/PE/payload inspected, rendered version/states and repeated normal close verified. Source checks PASS (0), 45/43 unchanged cases; native enabled-state NOT_RUN. Installer not executed. |
 | DT-001-DISCOVERY | DONE | Local typecheck/lint/default/focused PASS (0): default 45, focused 43; 42 unchanged + authorized B10 + two new cases. No-match safeguard PASS (expected exit 1). ISSUE-007 resolved. |
 | DT-001-LINTFIX | DONE | Prior local lint/typecheck PASS (0), 43 candidates PASS (0: original 27 + new 16), genuine two-case red; exact override/integrity PASS. Its ordinary-discovery failure is superseded by DISCOVERY. |
 | DOCS-003 | DONE | Documentation consistency, preserved controls/history, local links, prior evidence, exact scope/hashes and whitespace PASS. Application checks NOT_RUN in DOCS-003; no review required. |
 | DT-001-TYPEFIX | DONE | Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265: typecheck PASS (0); original 22 + five new candidates PASS (0); integrity/whitespace PASS. Prior failures retained in its report; current lint result is in LINTFIX. |
-| DT-001 | IN_PROGRESS | Partially verified; typecheck/lint/default/focused PASS (0), ordinary discovery integrated. Packaging/installer, actual native security/device checks and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
+| DT-001 | IN_PROGRESS | Partially verified; typecheck/lint/default/focused PASS (0), ordinary discovery integrated. Package/installer creation and unpacked launch/close verified; installation, full offline/native security and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
 | DT-000 | PLANNED | Separate infrastructure improvement; NOT_CONFIGURED; no blanket completion gate for unrelated local development. |
 
-Latest verification: [discovery](../validation/DT-001-discovery.md); prior
+Latest package/native verification: [Windows package](../validation/DT-001-winpackage.md).
+Prior [discovery](../validation/DT-001-discovery.md),
 [lint](../validation/DT-001-lintfix.md), [typefix](../validation/DT-001-typefix.md)
 and [baseline](../validation/DT-001-baseline.md) results retain their original scope.
-ISSUE-007 is locally resolved. Next parent work is packaging/installation and
-native/platform evidence, requiring a new bounded assignment; not started here.
+ISSUE-007 is locally resolved. [Windows package validation](../validation/DT-001-winpackage.md)
+is DONE after the owner's later explicit make delegation; initial missing-output
+ISSUE-009 is resolved. Next parent work is separately assigned installed-app,
+offline/clean-machine, native-security and platform evidence; none started here.
 Do not start unassigned features. Technical requirements below remain unchanged.
 
 ## Technical backlog and task-specific evidence
@@ -196,3 +200,26 @@ See [report](../validation/DT-001-discovery.md). ISSUE-007 resolved locally;
 prior bounded tasks remain DONE and DT-001 IN_PROGRESS for runtime/platform gaps.
 No review needed; next parent work is unassigned packaging/native validation.
 No installation, push, packaging or features started.
+
+## 2026-11-10T04:35:33+05:00 — DT-001-WINPACKAGE — BLOCKED
+
+Started 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0, initially clean. Fixed native WP01–WP08 procedure
+created before checks. No owner build log/outcome and no out/ or package artifacts
+found by Windows/WSL inspection. WP01–06 NOT_RUN; source WP07 PASS (0: typecheck,
+lint, default 45/focused 43 with unchanged identities). WP08 source integrity
+passes; artifact integrity NOT_RUN. [Report](../validation/DT-001-winpackage.md).
+Owner next supplies normal make output/revision/working state/exit code/artifacts.
+No build, install, download, native app launch or push performed. Parent stays
+IN_PROGRESS; earlier completed repairs remain DONE. No generic review gate.
+
+## 2026-11-10T04:49:24+05:00 — DT-001-WINPACKAGE — DONE after owner build delegation
+
+Owner replied "run it yourself", superseding the initial make boundary. Normal
+win32/x64 make PASS (0), outputs/PE/ASAR/payload identity inspected; rendered
+states/version/bridge and two complete normal-close cycles PASS with no remaining
+owned processes. Fixed WP01–08 met within documented limits; native enabled-state
+inspection NOT_RUN. Final typecheck/lint/default45/focused43 PASS (0), hashes and
+identities unchanged. [Report](../validation/DT-001-winpackage.md) preserves initial
+blocker and actual later evidence. ISSUE-009 resolved; parent stays IN_PROGRESS
+for installation/offline/native-security/platform checks. No review required.
+No dependency-install command, installer execution or push; no next task started.

@@ -704,3 +704,133 @@ todo/failed cases. All 23 touched local Markdown links resolve. Working whitespa
 PASS (git diff --check, 0). Full intended source/documentation diff reviewed;
 remaining work is staged-byte/scope review and local commit. No tests rerun after
 these documentation-only edits; tested executable/config bytes remain unchanged.
+
+## 2026-11-10T04:32:46+05:00 — DT-001-WINPACKAGE initial procedure and prerequisite inspection
+
+Starting 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0 on clean main. Owner explicitly
+assigned external Windows-package smoke prompt; artifact inspection/packaged-app
+launch, fixed new manual procedure, source checks and records/local commit only.
+No make/package, installs/downloads, source/config/existing-test changes or
+installer execution authorized. Captured all 74 original tracked-file baselines.
+Owner build output/revision/working state/exit code not supplied; requested them.
+Both WSL file inspection and native Windows Node confirm out/ absent. This is a
+missing artifact prerequisite, not evidence that an owner build command failed.
+No build exit code or artifact identity is invented; no development app substituted.
+
+Before native smoke execution and source regression reruns, fixed WP01–WP08 in
+`tests/hardware/DT-001-windows-package.md`; SHA-256 `d88f28c15356993d993a6904d63fe44c5ba6ceae3981666405b75b4ecbb49165`. Full initial content stored outside
+tracked files. This is a manual/native procedure, not an executable suite or
+independent evaluator. Its expectations will not be revised to fit observations.
+Windows tool probe PASS (0): Node v22.19.0/win32 x64, npm 11.14.1, Vitest 5.1.0,
+Forge 8.0.1, Electron package 45.2.3; source manifest version 0.1.0. Specific
+ELECTRON_RUN_AS_NODE is 1; no child app launched or persistent environment changed.
+Next: complete independent unchanged source checks; packaged inspection/launch
+requires owner-built outputs and captured make/provenance evidence.
+
+## 2026-11-10T04:35:33+05:00 — DT-001-WINPACKAGE partial validation handoff
+
+**Status:** BLOCKED. Starting 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0, main initially clean. Explicit
+owner task allows artifact/native smoke/procedure/source checks and records, but
+reserves make/package/prerequisite downloads to the owner. No owner build output
+provided after request; out/ absent in WSL and native Windows, no workspace
+package artifacts found outside dependencies/Git. Build outcome/exit and artifact
+identity UNKNOWN, not an executed packaging failure. ISSUE-009 records prerequisite.
+
+Fixed new manual tests/hardware/DT-001-windows-package.md hash recorded above;
+no revision after creation. Added docs/validation/DT-001-winpackage.md and updated
+four canonical records. DECISIONS unchanged: no new architectural proposal needed.
+WP01–06 NOT_RUN, WP07 PASS; WP08 source/procedure PASS, artifact portion NOT_RUN.
+No packaged app/installer launched, process tree created/closed, UI observed or
+screenshot captured. ELECTRON_RUN_AS_NODE=1 inspected only; no environment changed.
+
+Actual native Windows commands via cmd.exe /c: npm run typecheck PASS (0), npm run
+lint PASS (0); npm test and npm run test:candidates with unfiltered JSON reporter/
+separate ignored outputFile each PASS (0: 9 files/45 cases, 8/43). One run per
+suite, no duplicate reporter rerun. All relative file/ordinal/name/status rows
+match the verified discovery manifest; no skips/todos. Command version probes
+PASS (0): Node v22.19.0/win32 x64, npm11.14.1, Vitest5.1.0, Forge8.0.1,
+Electron package45.2.3; actual Windows10.0.26100.9711. Source version0.1.0 only.
+Machine-local reports ignored/copied outside tracked files; no raw dumps committed.
+
+Only authorized procedure/report/four memory paths change; 70 other original
+tracked files and fixed procedure remain unchanged. Final content/history/link/
+whitespace/staged checks recorded before local diagnostic commit. No failed
+build/repair attempt or fabricated red run. Missing artifacts prevent completion,
+despite source green. Parent remains IN_PROGRESS; prior repair statuses preserved.
+Owner next supplies make revision/working state/log/exit and outputs. No generic
+review needed. Installer/clean-machine/offline/security/signing/macOS/AI checks
+remain NOT_RUN. Nothing built/installed/downloaded, no source/config/test/helper/
+dependency change, prompt storage, remote change or push. Stop before features.
+
+### 2026-11-10T04:36:59+05:00 — Owner delegates normal make to Codex
+
+After the missing-artifact request, owner explicitly replied "run it yourself".
+This later direction overrides the external prompt's owner-only make restriction
+for the normal Windows make command and its ordinary prerequisite/checksum fetches;
+no dependency installation, security bypass, installer execution or push is implied.
+Proceed with npm run make -- --platform=win32 --arch=x64 using installed tools.
+Build starting HEAD remains 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0, with only
+this task's uncommitted procedure/report/four memory changes. Technical source,
+existing tests, configurations and dependencies remain at the captured baseline.
+Earlier BLOCKED observations are historical; new build/artifact evidence follows.
+
+## 2026-11-10T04:49:24+05:00 — DT-001-WINPACKAGE completion after steering
+
+**Status:** DONE. Starting source 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0.
+Owner's later "run it yourself" explicitly delegated normal make, superseding
+initial owner-build restriction; D-027 records scope. No generic approval gate.
+Actual cmd.exe /c npm run make -- --platform=win32 --arch=x64 PASS (0), new x64
+app and Squirrel outputs; initial out/ absence and blocked report retained as
+historical checkpoints. Build working changes were procedure/report/four memory
+files only; all technical source/config/tests/manifest/lockfile unchanged.
+
+Actual EXE AMD64 and ASAR0.1.0 inspected; main/preload/HTML/JS/CSS resolve within
+archive, external runtime requires are builtin/Electron, required installed runtime
+files present. Installer/nupkg/RELEASES/maker metadata sizes/SHA recorded; RELEASES
+SHA1/name/size valid and nupkg EXE/ASAR SHA256 match unpacked package. Hashes identify
+local bytes, not independent provenance or signing. Installer never executed.
+
+Native PowerShell directly launched packaged EXE from Windows temporary directory,
+without npm/Node/dev server. Workspace development query and default-port3000
+listener count zero. Only child env omitted inherited ELECTRON_RUN_AS_NODE=1.
+Cycle1 top-only view/normal close, then complete top/bottom UI cycles2/3 observed:
+correct title/four states/unavailable controls/Version0.1.0. Root PIDs19696/21984/
+24492 respectively; all CloseMainWindow true, app exit0, tracked trees empty,
+no forced kill. App-only PrintWindow images/native logs ignored, not committed.
+Native UIA button count0: enabled-state semantics NOT_RUN; component evidence stays
+separate. No full offline, installed-app, security-enforcement or macOS claim.
+
+After newly authorized make/native work, final source commands each PASS (0):
+aggregate typecheck, zero-warning lint, unfiltered default JSON45/9files and
+focused JSON43/8files. One post-build run per suite, no reporter-only duplicates;
+earlier source runs were before the late authorization. Identities exactly match
+prior verified manifest, no skips/todos. All inspected artifact hashes match
+post-build baseline after launches/regressions; fixed procedure SHA unchanged.
+
+Actual observation-helper corrections: forward-slash ASAR read FAIL (1), native
+separator read PASS (0); initial hashtable display null while real JSON log valid,
+typed projection corrected output; footer initially outside capture, app-only
+scrolling provided version; helper legacy-libEGL assumption failed, actual installed
+Electron45 inventory excludes it and all real runtime files are present. These
+are tool corrections, not product defects or test/procedure changes. No manufactured
+red run or protected-surface repair. Source/artifacts/procedure remained intact.
+
+Final changes: unchanged new hardware procedure, append-only report and five
+memory records (seven files); 69 other tracked originals byte-identical. ISSUE-009
+resolved; task DONE while parent IN_PROGRESS for install/offline/security/platform
+evidence. No owner review required; next work needs separate assignment. No npm
+install/update command, installer execution or push. Normal make may fetch its
+verification/prerequisite data under explicit delegation, so earlier no-download
+statements apply only before steering. Final scope/history/link/whitespace/stage
+checks precede one local commit; resulting hash reported in handoff.
+
+### 2026-11-10T04:50:48+05:00 — Final package-smoke handoff verification
+
+Scope/history/fixed-procedure/link/working-whitespace checks PASS (0): seven
+procedure/report/five-memory paths only, 69 other originals byte-identical,
+original test identities retained and artifact hashes unchanged after final
+regressions. Full intended report/record diff inspected; no screenshots, build
+outputs, raw logs or observer tools enter the stage. Final Windows exact-EXE
+process query returned zero (exit0). Staged scope/bytes/whitespace are reviewed
+before one local commit; no post-documentation executable changes require reruns.
+Task DONE within reported native/accessibility limits; parent IN_PROGRESS.

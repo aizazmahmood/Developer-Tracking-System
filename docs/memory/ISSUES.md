@@ -312,3 +312,36 @@ one name, so retain ordinals and all rows. No tests/results were revised for tha
 reporting correction. Full [evidence](../validation/DT-001-discovery.md).
 Parent packaging/native/platform gaps remain; no app/AI/macOS runtime checks.
 No owner review required, installation or push; no next task started.
+
+## 2026-11-10T04:35:33+05:00 — ISSUE-009 — Windows package prerequisite unavailable
+
+**Task:** DT-001-WINPACKAGE. **Status:** BLOCKED, missing owner build/artifacts.
+Starting 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0, clean main; native Windows Node win32 x64 through WSL2.
+**Reproduce:** read-only filesystem inspection and Windows fs.existsSync('out')
+show no output directory; workspace scan outside dependencies/Git finds no app
+EXE/ASAR/nupkg. Owner build log/revision/working-state/exit code not supplied.
+**Cause:** missing validation input is confirmed; whether make was ever run,
+failed or produced output elsewhere is UNKNOWN. Do not call this a package bug.
+**Attempts:** requested owner evidence; inspected expected roots and actual source/
+configuration. Did not run make/package or substitute development Electron.
+**Independent progress:** fixed manual WP procedure and source checks completed;
+typecheck/lint/default45/focused43 PASS (0), identities unchanged. Native packaged
+UI/bridge/close and artifact checks NOT_RUN. No protected-surface repair attempted.
+**Next/verification:** owner supplies actual build/provenance/output, then run the
+unchanged procedure; unresolved until artifact/native evidence exists. No generic
+approval gate or invented build exit. [Report](../validation/DT-001-winpackage.md).
+
+### 2026-11-10T04:49:24+05:00 — ISSUE-009 resolution after explicit make delegation
+
+Owner subsequently said "run it yourself". Normal Windows make was then executed
+with recorded HEAD/doc-only working changes and exited 0, producing fresh x64 app
+and Squirrel outputs. **Status: RESOLVED**; initial missing-output checkpoint is
+preserved and was never diagnosed as a packaging defect. App/ASAR/installer hashes,
+PE/runtime files and package metadata inspected; complete native cycles 2/3 show
+required states/version and normal close (exit0, no remaining owned descendants).
+UIA returned no buttons; native enabled-state remains NOT_RUN. Observation-tool
+corrections (ASAR native separators, PowerShell display projection, footer scrolling,
+actual installed runtime-file inventory) are documented in the report, not hidden
+as product fixes. No tests/procedure/source/artifacts changed to resolve them.
+Final typecheck/lint/default45/focused43 PASS (0); scoped smoke task DONE, broader
+install/security/offline/macOS evidence still pending. No dependency install or push.

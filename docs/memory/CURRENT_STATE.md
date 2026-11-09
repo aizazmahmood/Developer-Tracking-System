@@ -1,56 +1,59 @@
 # Current State
 
 **Last updated:** 2026-11-10 (Asia/Karachi).
-**Current task:** DT-001-DISCOVERY — DONE; locally verified.
-**Prior bounded tasks:** DOCS-003, DT-001-TYPEFIX and DT-001-LINTFIX — DONE.
-**Parent DT-001:** IN_PROGRESS; partially verified.
+**Current task:** DT-001-WINPACKAGE — DONE; scoped local Windows smoke evidence.
+**Prior bounded tasks:** DOCS-003, TYPEFIX, LINTFIX and DISCOVERY — DONE.
+**Parent DT-001:** IN_PROGRESS; installed/native-security/platform checks remain.
 
-## Latest verification
+## Windows build and packaged smoke
 
-Started clean main at 659fe8c931ef007062fb76879aeefccc3c1f066a. Owner assignment
-explicitly authorized only default discovery's include/exclude edits, the stated
-B10 revision, new ordinary regressions and narrowly related documentation/records.
-No other existing test, helper, application or dependency/build configuration change.
+Started clean main at 5fc4e40a4ff84e24acbca58d8ee996c325ce9bf0. Initially no
+owner build record/artifacts existed. Owner then explicitly said "run it yourself",
+authorizing Codex's normal Windows make and its ordinary prerequisite/checksum
+fetches. Earlier blocked checkpoints remain historical in the report/memory.
 
-| Command/check | Actual result |
-|---|---|
-| Baseline typecheck/lint/focused | PASS (0); focused 8 files / 43 cases |
-| Baseline npm test | FAIL (1), no files; former ISSUE-007 |
-| Tests first, original runner | Genuine red: ordinary 1 fail/1 pass; focused B10 fails / other 42 pass |
-| npm run typecheck / npm run lint | PASS (0 each), unchanged aggregate and zero-warning rules |
-| npm test | PASS (0), 9 files / 45 cases |
-| npm run test:candidates | PASS (0), 8 files / 43 cases |
-| Explicit no-match control | PASS, expected exit 1 for No test files found |
-| Actual execution inventories | PASS: 42 unchanged + revised B10 + two new ordinary cases; each once, no skips |
-| Scope/history/hashes/links/whitespace | PASS; fixed test contents and 61 unrelated original files preserved |
+- Normal make for win32/x64 PASS (0), generated the unpacked app and Squirrel output.
+- Source version and actual embedded/visible package version: 0.1.0. App PE AMD64.
+- App: out/Developer Work Tracker-win32-x64/desktop-tracker.exe.
+- Installer created: out/make/squirrel.windows/x64/Developer Work Tracker-0.1.0 Setup.exe.
+  Creation is verified; installation is NOT_RUN. Payload EXE/ASAR hashes match package.
+- Actual ASAR main/preload/renderer assets and runtime dependencies/files inspected.
+- Direct native Windows launches from outside checkout show required states,
+  unavailable controls and Version 0.1.0 without a workspace dev server.
+- Two complete UI/bridge/normal-close cycles PASS, exit 0 and zero task-owned
+  descendants; initial top-only observation cycle also closed normally. No forced kill.
+- Native accessibility supplied zero button elements, so native enabled-state
+  inspection is NOT_RUN. Component disabled-property evidence is separate.
+- ELECTRON_RUN_AS_NODE removed only from launched children; no persistent change.
 
-Evidence: native Windows Node 22.19.0/win32 x64, npm 11.14.1, Vitest 5.1.0;
-local unit/component/jsdom/type/configuration checks through WSL orchestration.
-[Discovery report](../validation/DT-001-discovery.md) records actual runs, identity
-mapping and the no-match safeguard. [Lint](../validation/DT-001-lintfix.md),
-[typefix](../validation/DT-001-typefix.md) and [baseline](../validation/DT-001-baseline.md)
-reports preserve their earlier results. ISSUE-005/006/007 repairs are locally resolved.
+Windows 10.0.26100.9711; Node22.19.0/win32 x64, npm11.14.1, Electron45.2.3,
+Forge8.0.1, Vitest5.1.0. WSL orchestrates genuine Windows execution. App-only
+screenshots/native logs remain ignored; local hashes are not independent attestation.
 
-## Discovery and remaining milestone work
+## Final post-build source and integrity checks
 
-Default npm test now includes ordinary unit/integration/acceptance patterns and
-the existing scaffold directory. The unchanged focused command stays scaffold-only.
-Both fail on zero matching tests. The dated B10 addendum supersedes the original
-exclusion requirement without erasing its history. Directory naming is not approval.
-Further existing-test/effective-execution revisions require scoped owner approval.
+Typecheck/lint PASS (0 each); default PASS (0, 45 cases/9 files), focused PASS
+(0, 43/8), all original identities unchanged, zero skips/todos. Repeated after
+the late build authorization, once per suite with unfiltered inventory reporting.
+Source/config/tests/dependencies and fixed procedure remain unchanged; inspected
+artifact hashes remain stable after launch/close. 69 original tracked files
+remain byte-identical; only procedure/report/five memory records change.
+ISSUE-009 prerequisite resolved; ISSUE-005/006/007 remain resolved.
 
-DT-001 remains IN_PROGRESS for packaging/make, installed-artifact validation,
-actual native Windows security/device checks and required macOS/platform evidence.
-Prior Windows development-window observation has limited scope. App/native/package/
-installer/AI/macOS checks are NOT_RUN in this task; no independent enforcement,
-native runtime, signing or production readiness is established. DT-000 remains
-PLANNED/NOT_CONFIGURED as separate infrastructure, not an unrelated local gate.
+See the latest dated completion entry in [package evidence](../validation/DT-001-winpackage.md)
+and the unchanged [WP procedure](../../tests/hardware/DT-001-windows-package.md).
 
-**Owner action:** None for completing this task. No owner review required.
-Next: separately assign bounded parent packaging/native/platform verification
-with its required prerequisites. Do not start it or feature work here. Nothing
-installed or pushed; no prompt folder recreated.
+## Remaining parent evidence
 
-[Root instructions](../../AGENTS.md), [test policy](../TEST_POLICY.md),
-[tasks](TASKS.md), [history](PROJECT_MEMORY.md), [issues](ISSUES.md),
-[decisions](DECISIONS.md), [architecture](../ARCHITECTURE.md).
+Installation/uninstall/update, clean-machine and full offline checks, signing/
+publisher validation, actual native sandbox/IPC/navigation/permission/CSP security
+enforcement, AI and required macOS/platform checks remain NOT_RUN. No installed
+app, production readiness or independent enforcement claim. Parent stays IN_PROGRESS;
+DT-000 remains separately PLANNED/NOT_CONFIGURED. No source/features changed.
+
+**Owner action:** None for completing this bounded task. Next parent installed/
+security/platform work requires a separate explicit assignment and permissions.
+No dependency-install/update command or installer executed; nothing pushed.
+
+[Tasks](TASKS.md), [history](PROJECT_MEMORY.md), [issues](ISSUES.md),
+[decisions](DECISIONS.md), [root instructions](../../AGENTS.md).

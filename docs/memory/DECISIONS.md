@@ -175,3 +175,18 @@ and the unchanged typefix report support DT-001-TYPEFIX DONE; DT-001 is IN_PROGR
 partially verified with lint/discovery failures and packaging/native/platform gaps.
 No new application run or independent acceptance is claimed. No review is needed
 merely to complete that repair or DOCS-003 after its documentation checks pass.
+
+## 2026-11-10T03:59:19+05:00 — D-025 — Exact two-file CommonJS import exception
+
+**Status:** OWNER_AUTHORIZED and locally verified for DT-001-LINTFIX.
+Source: owner explicitly assigned external DT-001-LINTFIX-commonjs-config-scope.md.
+Authorization is only to append the stated no-require-imports: off rule for
+['forge.config.cjs', 'webpack.renderer.config.cjs'] after recommended ESLint
+configs, plus new independent tests, report/memory and local commit. This corrects
+intentional CommonJS build imports without ignoring files or broadening to all
+.cjs, changing build behaviour or weakening renderer/shared boundaries. The older
+broader ISSUE-006 proposal was not implemented. No other rule/configuration/test
+revision is authorized; new test contents were recorded before red and unchanged.
+Real ESLint negatives and exact config-byte comparison verify the limit; lint,
+typecheck and all 43 candidates pass locally. Ordinary discovery remains separate.
+See [report](../validation/DT-001-lintfix.md); nothing installed or pushed.

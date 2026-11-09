@@ -550,3 +550,67 @@ separate precise authorization; neither was started. No dependencies installed,
 source/tests/fixtures/configuration changed, prompt folder recreated, remotes
 changed or changes pushed. Commit locally with existing Windows Git identity after
 explicit staging/review; report resulting hash in handoff, not self-reference.
+
+## 2026-11-10T03:55:18+05:00 — DT-001-LINTFIX initial test baseline
+
+Starting revision: 9a9ff4b98ae5ad7b8ead8dab4ffd5db2cd6f9891, main, clean at inspection.
+Owner explicitly assigned the external DT-001-LINTFIX task: authorize only the
+exact two-file no-require-imports override in eslint.config.mjs, new independent
+regressions, report/memory and local commit. No broader configuration/test change.
+Baseline `cmd.exe /c npm run lint` FAIL (1): exactly two no-require-imports errors,
+forge.config.cjs:1:14 and webpack.renderer.config.cjs:1:30, zero warnings.
+Installed public ESLint exports/types and recommended unused-variable rules were
+inspected before writing tests. Native Windows Node v22.19.0/win32 x64, npm
+11.14.1, ESLint 9.39.1, TypeScript 5.9.3, Vitest 5.1.0, typescript-eslint 8.72.2.
+
+Before configuration implementation/first regression run, recorded initial
+`test-candidates/lint-config.candidate.test.ts` SHA-256 `cfe99c9966387b2c1fdf631e75f7c9d6932bba0c2431a084822ed403636d2841` and its full content
+externally. Starting eslint.config.mjs SHA-256 `20f054ebc847366e05280b34d68cbec6104bf0833dc5128747f94d3a668c564e`.
+The 16 cases use the real ESLint configuration: two actual clean/linted targets,
+three non-exempt CommonJS paths (including nested target basenames), five TS
+require negatives, two target unused-variable negatives and four privileged-import
+negatives. Synthetic text is analyzed, never written/executed. Every result must
+be real, at the requested path, without parse failures or suppressed messages.
+Initial expectations are now fixed; the configuration remains unchanged. New
+independent tests need no approval; subsequent test revisions require explicit
+scoped authorization. All 70 original tracked-file hashes captured externally.
+Next: run unchanged candidate command for genuine red evidence, apply only the
+exact override, verify required checks and record results. ISSUE-007 stays separate.
+
+### 2026-11-10T03:56:27+05:00 — DT-001-LINTFIX genuine red before configuration edit
+
+`cmd.exe /c npm run test:candidates` FAIL (1): eight files, seven pass/one fail;
+43 cases, 41 pass/two fail, zero skipped. All 27 pre-existing cases and all 14
+new negative controls pass. Both actual target-file cases fail at errorCount:
+expected 0, received 1, line 24 of the fixed new test. Each had already passed
+config-path, non-ignored, genuine-result, no-parse-failure and no-suppression
+assertions. This reproduces the lint-scope mismatch, not a harness/import failure.
+New test hash and starting config still match their recorded baselines. Next:
+apply exactly the owner-authorized two-file rule override, then verify unchanged
+lint/typecheck/candidate/ordinary commands and integrity. No test revision needed.
+
+## 2026-11-10T03:59:19+05:00 — DT-001-LINTFIX completion
+
+**Status:** DONE. Starting revision: 9a9ff4b98ae5ad7b8ead8dab4ffd5db2cd6f9891, main initially clean.
+Explicit owner authorization and fixed initial test hash are recorded above.
+Applied only the six-line two-file rule override in eslint.config.mjs; added
+test-candidates/lint-config.candidate.test.ts and docs/validation/DT-001-lintfix.md;
+updated five canonical memory files. D-025 records scope; ISSUE-006 resolved locally.
+No new-test revision or broader configuration/application/dependency change.
+
+Actual Windows cmd.exe /c commands: baseline npm run lint FAIL (1, two errors,
+zero warnings); red npm run test:candidates FAIL (1, 2 fail/41 pass). After exact
+override npm run lint PASS (0), npm run typecheck PASS (0), npm run test:candidates
+PASS (0, 8 files/43 cases: original 27 + new 16, zero skips); npm test FAIL (1,
+no ordinary files, unchanged ISSUE-007). git diff --check PASS (0); integrity
+checks PASS (0): 64 originals byte-identical, exact config insertion and new-test
+initial SHA unchanged. No failed implementation/harness attempt. Report contains
+environment, red/green timings, inventory, hash evidence and remaining scope.
+
+DT-001-LINTFIX — DONE. No owner review is required for completion. DOCS-003 and
+DT-001-TYPEFIX remain DONE; DT-001 IN_PROGRESS for discovery/packaging/native gaps.
+Next separate task is ISSUE-007, needing specifically scoped existing-test/config
+authorization. App/native/package/installer/AI/macOS checks NOT_RUN, out of scope;
+no runtime readiness claimed. No dependencies installed, binaries downloaded,
+prompts stored, remotes changed or push. Review/stage explicit eight files and
+commit locally with configured Windows Git; report new hash after commit.

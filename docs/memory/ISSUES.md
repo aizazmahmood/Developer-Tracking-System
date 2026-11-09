@@ -276,3 +276,21 @@ only on those changed lines, using paragraph separation. The rerun passed (0).
 No application/test assertion, config or recorded result was revised to hide a
 failure. ISSUE-006/007 and parent release/native/platform gaps remain unchanged.
 No owner action or review is required to complete this documentation task.
+
+## 2026-11-10T03:59:19+05:00 — ISSUE-006 — Verified two-file lint-scope resolution
+
+**Task:** DT-001-LINTFIX — DONE. **Status:** RESOLVED_LOCALLY.
+At 9a9ff4b98ae5ad7b8ead8dab4ffd5db2cd6f9891, unchanged lint reproduced the two known errors (exit 1,
+zero warnings). Sixteen fixed real-ESLint regressions then produced meaningful
+red: only two actual target checks failed; original 27 and 14 negatives passed.
+Owner-authorized exact override disables only no-require-imports for
+forge.config.cjs and webpack.renderer.config.cjs after recommended configs.
+Unlike the older all-.cjs proposal above, no other path is exempt. No alternative
+repair/failed harness attempt or test revision was needed. Installed Windows
+Node 22.19.0, ESLint 9.39.1/typescript-eslint 8.72.2; full environment in report.
+Verification: lint/typecheck PASS (0), 43 candidates PASS (0), negative controls
+preserve non-target/TS imports, target unused-variable and privileged-import rules;
+exact-delta/hash/whitespace checks PASS. ISSUE-007 remains FAIL (1, no files),
+outside this repair. Native/package/installer/AI/macOS checks NOT_RUN here.
+Historical failures retained; [evidence](../validation/DT-001-lintfix.md).
+No owner review needed for completion; next separate task is scoped ISSUE-007.

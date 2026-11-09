@@ -1,7 +1,7 @@
 # Task Backlog
 
 **DT-001 — IN_PROGRESS; partially verified. DT-001-TYPEFIX — DONE; locally verified
-at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE.**
+at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE. DT-001-LINTFIX — DONE.**
 DT-000 is PLANNED (infrastructure NOT_CONFIGURED); other unassigned features remain PLANNED.
 
 Write new tests first, record/run them, implement and verify without initial test
@@ -23,15 +23,17 @@ release, installation, dependency, policy and remote-operation rules.
 
 | Task | Status | Evidence and remaining work |
 |---|---|---|
-| DOCS-003 | DONE | Documentation consistency, preserved controls/history, local links, prior evidence, exact scope/hashes and whitespace PASS. Application checks NOT_RUN this session; no review required. |
-| DT-001-TYPEFIX | DONE | Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265: typecheck PASS (0); original 22 + five new candidates PASS (0); integrity/whitespace PASS. Parent lint/discovery failures unchanged. |
-| DT-001 | IN_PROGRESS | Partially verified; lint FAIL (1), ordinary tests FAIL (1, zero files). Packaging/installer, actual native security/device checks and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
+| DT-001-LINTFIX | DONE | Current local lint/typecheck PASS (0), 43 candidates PASS (0: original 27 + new 16), genuine two-case red; exact override/integrity PASS. Ordinary npm test FAIL (1), separate ISSUE-007. |
+| DOCS-003 | DONE | Documentation consistency, preserved controls/history, local links, prior evidence, exact scope/hashes and whitespace PASS. Application checks NOT_RUN in DOCS-003; no review required. |
+| DT-001-TYPEFIX | DONE | Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265: typecheck PASS (0); original 22 + five new candidates PASS (0); integrity/whitespace PASS. Prior failures retained in its report; current lint result is in LINTFIX. |
+| DT-001 | IN_PROGRESS | Partially verified; lint/typecheck PASS (0), ordinary tests FAIL (1, zero files). Packaging/installer, actual native security/device checks and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
 | DT-000 | PLANNED | Separate infrastructure improvement; NOT_CONFIGURED; no blanket completion gate for unrelated local development. |
 
-Prior results are from [typefix](../validation/DT-001-typefix.md) and
-[baseline validation](../validation/DT-001-baseline.md); DOCS-003 does not rerun them.
-Next technical work is ISSUE-006 lint and ISSUE-007 ordinary discovery repair;
-protected revisions need separate exact authorization. Neither is started here.
+Latest verification: [lint fix](../validation/DT-001-lintfix.md). Earlier
+[typefix](../validation/DT-001-typefix.md) and [baseline](../validation/DT-001-baseline.md)
+results retain their original scope. Next separate task: ISSUE-007 ordinary
+discovery; its existing-test/configuration revisions need a specifically scoped
+assignment. It is not started here.
 Do not start unassigned features. Technical requirements below remain unchanged.
 
 ## Technical backlog and task-specific evidence
@@ -170,3 +172,14 @@ Owner action: None for completing this task; no generic review required.
 Next technical tasks remain unassigned ISSUE-006 lint and ISSUE-007 discovery
 repairs, each needing exact protected-revision authorization. Neither started.
 No source/tests/fixtures/dependencies/configuration/CI change, installation or push.
+
+## 2026-11-10T03:59:19+05:00 — DT-001-LINTFIX — DONE
+
+Starting 9a9ff4b98ae5ad7b8ead8dab4ffd5db2cd6f9891; exact owner-authorized two-file ESLint exception.
+Genuine red: 2 fail/41 pass; green: 43 pass (original 27 + new 16), zero skips.
+Lint/typecheck PASS (0); ordinary npm test FAIL (1), pre-existing ISSUE-007.
+Integrity/whitespace PASS; fixed new tests and all existing tests preserved.
+See [report](../validation/DT-001-lintfix.md). ISSUE-006 resolved locally;
+DOCS-003/typefix remain DONE and DT-001 IN_PROGRESS with discovery/runtime gaps.
+No owner review required; next separate task is specifically scoped ISSUE-007.
+No installation or push; no discovery, packaging or feature work started.

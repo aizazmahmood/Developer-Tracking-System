@@ -7,6 +7,12 @@ export default tseslint.config(
   { ignores: ['node_modules/**', '.webpack/**', 'out/**', 'dist/**', 'coverage/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  {
+    files: ['forge.config.cjs', 'webpack.renderer.config.cjs'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
   { files: ['**/*.cjs', '**/*.mjs', '**/*.mts', 'test-candidates/**/*.ts'],
     languageOptions: { globals: globals.node } },
   { files: ['src/main/**/*.ts', 'src/preload/**/*.ts'],

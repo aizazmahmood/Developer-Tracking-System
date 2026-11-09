@@ -182,11 +182,11 @@ or AI quality has been verified without the corresponding evidence.
 
 Keep AGENTS.md as the single root project-instructions file. Do not recreate
 root-level memory or project-documentation files: memory belongs in
-`docs/memory/`, general documentation in `docs/`, and stored prompts in
-`docs/prompts/`. Build/tool files retain their required or established locations.
+`docs/memory/` and general documentation in `docs/`. Do not retain task prompt
+files unless the owner explicitly requests them. Build/tool files retain their
+required or established locations.
 Do not create nested AGENTS.md files, overrides or duplicate instructions.
 
 Read and update the canonical memory files explicitly as instructed above;
-Codex does not automatically load every Markdown file under docs/. Stored
-prompts are reference material unless the owner explicitly assigns one; archived
-prompts are historical evidence. The documentation index is `docs/README.md`.
+Codex does not automatically load every Markdown file under docs/.
+The documentation index is `docs/README.md`.

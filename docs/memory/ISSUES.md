@@ -117,3 +117,10 @@ user.name and user.email. No identity was invented, copied into settings or
 changed. The authorized local commit can use this existing Windows Git identity;
 Linux Git remains unconfigured. State: WORKAROUND_AVAILABLE, commit result to be
 reported in the handoff. No hooks, signing or permissions are bypassed.
+
+## 2026-11-10 — DOCS-002 historical-reference note
+
+No new application or tooling issue encountered. Prompt files were intentionally
+removed at the owner's request. Earlier links to docs/prompts/ in append-only
+records identify former files rather than active documentation. Use commit
+`923d9ea` to retrieve them; active index/current-state links were updated.

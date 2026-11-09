@@ -51,3 +51,11 @@ the existing configured identity, permitting the authorized local commit without
 configuration changes. Review remains pending; no independent approval is implied.
 Next: owner reviews migration and its local commit. No dependency
 installation, remote change or push performed; no feature work is part of DOCS-001.
+
+## 2026-11-10 — DOCS-002 remove stored prompts
+
+**Status:** IMPLEMENTED_PENDING_REVIEW. Owner requested removal of the prompt
+folder and files. Removed both docs/prompts files and empty directories; updated
+active index/instructions/layout references. Earlier DOCS-001 entries and their
+historical links remain unchanged; prior contents are recoverable from `923d9ea`.
+Application files and test contracts are unchanged. Next: owner reviews cleanup.

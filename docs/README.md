@@ -94,11 +94,6 @@ not proof of implementation or protection enforcement. Source locations:
   [DT-010 timer draft](../specs/DT-010-timer.md). Neither is approved by this cleanup.
 - Templates: [work entry](../templates/WORK_ENTRY.md),
   [issue entry](../templates/ISSUE_ENTRY.md), and [task specification](../templates/TASK_SPEC.md).
-- Current assigned prompt: [documentation reorganisation](prompts/CODEX_BOOTSTRAP_PROMPT.md).
-  Its filename is retained from the owner's working file; its content now assigns DOCS-001.
-- Historical prompt: [original bootstrap](prompts/archive/CODEX_BOOTSTRAP_PROMPT.bootstrap.md),
-  preserved verbatim from commit `ed096d2`. It is obsolete and must not be executed
-  as current instructions.
 
 ## DOCS-001 path migration
 
@@ -114,12 +109,14 @@ locations. Memory has one canonical active location; no root copies remain.
 | DECISIONS.md | [docs/memory/DECISIONS.md](memory/DECISIONS.md) |
 | TASKS.md | [docs/memory/TASKS.md](memory/TASKS.md) |
 | README.md | [docs/README.md](README.md) |
-| CODEX_BOOTSTRAP_PROMPT.md (current owner revision) | [docs/prompts/CODEX_BOOTSTRAP_PROMPT.md](prompts/CODEX_BOOTSTRAP_PROMPT.md) |
+| CODEX_BOOTSTRAP_PROMPT.md | Removed with docs/prompts/ at owner request (DOCS-002). |
 
 Old paths inside historical memory, recorded commands and specifications describe
 the earlier layout. They were preserved as evidence, not active path instructions.
-The bootstrap spec's old prompt reference identifies the original bootstrap
-prompt in the archive above; the current prompt contains this documentation task.
+Prompt files were removed in DOCS-002 at the owner's request. Earlier prompt
+references and links in append-only history remain historical evidence. Their
+contents can be recovered from commit `923d9ea` with `git show` if needed;
+there is no active prompt folder to maintain.
 Follow canonical instructions in [AGENTS.md](../AGENTS.md) for future sessions.
 
 Local commits are permitted; every push belongs to the owner. No real staff

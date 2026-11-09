@@ -249,3 +249,42 @@ as session history. Final source/docs checks and this entry will be staged befor
 committing. Commit hash is reported in the handoff rather than self-referenced.
 No dependencies installed, no remotes changed, nothing pushed. Owner review and
 all earlier feature acceptance/runtime work remain pending.
+
+## 2026-11-10T01:53:09+05:00 — DOCS-002 — Remove stored prompts
+
+**Status:** IMPLEMENTED_PENDING_REVIEW. **Starting revision:** 923d9eaee51e9638f9cf3604a95ea9df198cf717.
+**Authorization:** Owner explicitly requested removal of the prompt folder/files.
+**Approved feature contract:** PENDING / not applicable to documentation cleanup;
+no feature acceptance or independent review is implied.
+
+Removed docs/prompts/CODEX_BOOTSTRAP_PROMPT.md and its archived bootstrap prompt,
+then their empty directories. Updated AGENTS organisation guidance (only prompt
+retention), docs/README links/migration note, architecture layout, current state
+and task/decision/issue records. D-021 supersedes D-020's retention arrangement.
+All earlier historical entries and specifications remain unchanged. Old prompt
+links in those entries are historical evidence; recover contents from `923d9ea`
+with Git rather than keeping duplicate files in the working tree.
+
+**Checks:** Starting git status/log/reference inspection exited 0: clean main at
+923d9ea before work. Python baseline and explicit-file removal/reference edits
+exited 0. `git diff --check` exited 0 / PASS. The temporary standard-library
+`python3 /tmp/docs-002-verify.py` exited 0 / PASS: folder absent, four append-only
+history/task records retain their full previous prefixes, unrelated tracked files
+(including all source/tests/specs/dependencies/build configuration) match baseline
+hashes, and 62 active relative link targets exist. Historical prompt links were
+intentionally excluded from active-link validation and documented. No link-checker
+or dependencies installed. `git diff --stat` inspected: only requested prompt
+removal, active references and memory records changed.
+
+Application typecheck/lint/tests/launch/package NOT_RUN (documentation-only).
+No new defects or blockers encountered; existing ISSUE-002 Windows Git workaround
+is used for the authorized local commit. Final staged diff/whitespace review is
+required before committing. No identity settings/hooks/security rules changed.
+**Next:** Owner reviews cleanup; application acceptance remains pending. Nothing
+pushed; no dependencies installed. Resulting commit hash is reported in handoff.
+
+**Final staged verification:** Explicit named-file staging exited 0;
+`git diff --cached --check` exited 0 / PASS; staged instruction/layout/index/
+current-state diff reviewed. The final verifier rerun exited 0 with the same
+62 active links and unchanged-file/history checks. Local commit is authorized;
+no push will be performed.

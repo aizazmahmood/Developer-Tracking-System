@@ -182,8 +182,6 @@ desktop-tracker/
       ISSUES.md
       DECISIONS.md
       TASKS.md
-    prompts/
-      CODEX_BOOTSTRAP_PROMPT.md
   specs/
   src/
     main/

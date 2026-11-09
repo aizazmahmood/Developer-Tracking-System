@@ -61,3 +61,13 @@ archive; its replacement was preserved as the current documentation prompt.
 This authorizes organisation only. It grants no feature-contract acceptance,
 weaker tests/security/approval rules, dependency changes, remote writes or push.
 Existing decision and approval records above are preserved, including old paths.
+
+## 2026-11-10 — D-021 — Remove stored task prompts
+
+**Status:** OWNER_REQUESTED; DOCS-002 implementation review pending.
+Owner explicitly said there is no need to keep prompts and authorized removing
+the folder and files. This supersedes only D-020's prompt-retention arrangement.
+Removed docs/prompts/ including its archived bootstrap file; Git history retains
+the former contents. Historical entries are preserved, including earlier links
+that refer to the removed files. General documentation/memory locations and all
+security, test, approval, dependency and push rules remain unchanged.

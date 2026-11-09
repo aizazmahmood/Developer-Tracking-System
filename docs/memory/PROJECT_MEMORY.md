@@ -390,3 +390,77 @@ Final hash/history check passed for the same 52 unrelated tracked files and
 previous historical entries. Application checks were not repeated after docs-only
 edits. One coherent local documentation commit records both the corrected rule
 and the passing/failing/NOT_RUN baseline evidence; its hash is returned in handoff.
+
+## 2026-11-10T03:10:06+05:00 — DT-001-TYPEFIX initial regression contract
+
+Starting revision: f23d78ef2beb2f51406362d20262bed38918bee1 (main; clean).
+Owner explicitly assigned the external DT-001-TYPEFIX task: authorization covers
+only the existing shell test import replacement, a standalone upstream matcher
+adapter/declaration and new regression checks. No initial approval is required
+for these new checks under current policy; subsequent test revisions require
+explicit scoped owner approval. This is not broader test/config edit permission.
+
+Before adapter implementation, recorded the complete initial contents externally
+in /tmp/dt001-typefix-new-tests.json and these SHA-256 identities:
+
+- `test-candidates/dom-matchers.candidate.test.ts`: `99029883edac3a187e2ade529a7005518e9632902b2cccc3c85245ec1a167e7f`.
+- `tests/fixtures/dom-matchers.typecheck.ts`: `db1f8e07ba77ce8ec52205e4b3f8c9c48c1e44ff2093e2508a7427fc1eae2d93`.
+
+The five runtime cases require enabled/disabled and attached visible/hidden
+elements, incorrect assertions throwing (also negated), awaited resolves/negation
+and rejected incorrect asynchronous assertions, with synthetic DOM cleanup.
+Compile-time checks require void vs Promise<void>, class matcher overloads and
+asymmetric accessibility arguments; four deliberate invalid calls must remain
+compiler errors. Expectations are now fixed; adapter/declarations are absent.
+The new runtime suite has NOT_RUN yet; no import-load failure is behavioural red.
+
+Baseline commands via native Windows tools on WSL2: `cmd.exe /c npm run typecheck`
+FAIL (exit 2: three TS2428 diagnostics), `cmd.exe /c npm run test:candidates`
+PASS (exit 0: all original six files/22 cases). This reproduced static declaration
+conflict is the relevant regression; no application-behaviour red is claimed.
+All 65 tracked files were hashed externally before edits. ISSUE-005 remains open
+until aggregate typecheck and preservation checks pass. Next: implement only the
+authorized setup and verify fixed tests without revising their initial contents.
+
+## 2026-11-10T03:14:37+05:00 — DT-001-TYPEFIX implementation and verification
+
+Starting revision: f23d78ef2beb2f51406362d20262bed38918bee1 (main, initially clean).
+Authorization: owner's explicit assignment of the external typing-fix task;
+only one existing shell import may change, plus new adapter/declarations and
+independent regression checks. Initial new tests were recorded in the preceding
+entry before implementation and remain byte-identical; no test revision sought
+or performed. This task supplies the scoped setup authorization, not acceptance
+of the broader proposed bootstrap contract (independent acceptance still PENDING).
+
+Changed: shell matcher import; added standalone registration adapter, public
+Vitest Matchers<R,T> augmentation, five runtime candidates and compile-time checks.
+Updated canonical memory and added docs/validation/DT-001-typefix.md. D-023 records
+the exact authorization; ISSUE-005 is now LOCALLY_VERIFIED. No application,
+dependency/lockfile, configuration, policy/spec or other existing test change.
+
+Commands via `/mnt/c/Windows/System32/cmd.exe /c` using installed Windows tools:
+baseline `npm run typecheck` FAIL (2, three TS2428); baseline `npm run
+test:candidates` PASS (0, six files/22 cases). After repair `npm run typecheck`
+PASS (0, root/shared/renderer), `npm run test:candidates` PASS (0, seven files/27
+cases, zero skips), `npm run lint` FAIL (1, only the same two CJS import errors),
+`npm test` FAIL (1, no files under unchanged ordinary discovery). Node --version
+PASS (0, v22.19.0); platform probe PASS (0, win32 x64); npm --version PASS
+(0, 11.14.1). Installed versions and public declaration/exports inspected read-only;
+official Vitest/jest-dom references reviewed. No dependency installation.
+
+SHA-256/content checks PASS (0): initial new tests fixed, existing shell equals
+baseline after exactly the authorized import replacement, other test identities
+and expectations unchanged; protected source/dependency/config files unchanged.
+Historical PROJECT_MEMORY/ISSUES/DECISIONS prefixes preserved; TASKS historical
+sections preserved after updating its active summary. `git diff --check` PASS (0).
+One documentation-only apply_patch invocation rejected duplicate operations on
+CURRENT_STATE before edits; canonical records were then written normally.
+No adapter/code revision or failed repair iteration was needed.
+
+DT-001 remains NOT_VERIFIED; typing repair IMPLEMENTED_PENDING_REVIEW and locally
+verified. ISSUE-006/007 remain open; native runtime/packaging/install/macOS/security
+enforcement/AI checks NOT_RUN or OUT_OF_SCOPE here. Next owner action: review the
+local commit, then authorize the exact bounded CJS lint repair separately. Do not
+start discovery integration or features. No prompt stored, remote changed or push.
+Local commit follows staged scope/whitespace review; resulting hash is reported
+in handoff rather than made self-referential in committed memory.

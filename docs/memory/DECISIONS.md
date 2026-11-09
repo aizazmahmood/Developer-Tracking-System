@@ -105,3 +105,29 @@ installation/pushes, meaningful local commits, truthful results and separately
 established release controls are retained. Historical approval records and
 acceptance cases remain unchanged. Existing test-candidates naming/discovery
 stays in place; any execution integration is a separately scoped revision.
+
+## 2026-11-10T03:14:37+05:00 — D-023 — Narrow standalone DOM matcher integration
+
+**Status:** OWNER_AUTHORIZED scope; implementation LOCALLY_VERIFIED, review pending.
+**Evidence/source:** owner explicitly requested reading and executing the external
+DT-001-TYPEFIX-dom-matcher-compatibility.md task. The submission, rather than an
+assistant suggestion or earlier generic acknowledgement, authorizes this change.
+The task document is not retained in the repository and no prompt folder returns.
+
+Authorization covers exactly replacing the shell test's jest-dom/vitest import
+with ../tests/fixtures/register-dom-matchers, developing that adapter and its
+declaration under tests/fixtures, and creating independent regression checks.
+Every existing test assertion, expected value, mock, hook and environment must
+remain unchanged. Newly recorded checks were not revised. No broader test,
+discovery, dependency, source, policy or configuration authorization is implied.
+
+The adapter registers genuine @testing-library/jest-dom/matchers through Vitest
+expect.extend. Ambient Matchers<R,T> augmentation reuses exported upstream types,
+preserving overloads and R (void or Promise<void>) without an assertion catch-all.
+This avoids the incompatible one-parameter Assertion augmentation. Existing
+compiler includes already cover the files; no discovery/config update is needed.
+
+Typecheck and 27 candidates pass locally. Lint and ordinary-suite failures remain
+as documented in ISSUE-006/007. This is not full DT-001 acceptance, independent
+enforcement, package/platform verification or permission to change those controls.
+See [validation](../validation/DT-001-typefix.md) and D-022 for the revision boundary.

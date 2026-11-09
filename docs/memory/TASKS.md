@@ -1,6 +1,6 @@
 # Task Backlog
 
-**DT-001 is NOT_VERIFIED after baseline validation (candidate/development checks pass; typecheck/lint/normal-suite integration remain open). DT-000 infrastructure is separately PENDING and feature tasks remain PLANNED.** Work in dependency order. Assigned feature tasks write new tests first, record/run them and implement without initial approval; existing-test revisions require explicit scoped owner approval. Every task records evidence and memory. A task can be TEST_DESIGN, READY_FOR_IMPLEMENTATION, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, BLOCKED, IMPLEMENTED_PENDING_REVIEW or DONE; DONE requires independent evidence.
+**DT-001 is NOT_VERIFIED overall. DT-001-TYPEFIX is locally verified (typecheck and 27 candidate cases pass); lint and normal-suite integration remain open. DT-000 infrastructure is separately PENDING and feature tasks remain PLANNED.** Work in dependency order. Assigned feature tasks write new tests first, record/run them and implement without initial approval; existing-test revisions require explicit scoped owner approval. Every task records evidence and memory. A task can be TEST_DESIGN, READY_FOR_IMPLEMENTATION, SCAFFOLDED_NOT_VERIFIED, IN_PROGRESS, BLOCKED, IMPLEMENTED_PENDING_REVIEW or DONE; DONE requires independent evidence.
 
 | ID | Deliverable | Dependencies | Required evidence before DONE |
 |---|---|---|---|
@@ -82,3 +82,22 @@ Smallest next task: inspect a compatible typing repair and present the precise
 existing-surface revision for approval. CJS lint override and discovery integration
 are separate proposed revisions (ISSUE-005..007); none applied here. No dependency
 installation or push performed. The validation task does not authorize features.
+
+## 2026-11-10T03:14:37+05:00 — DT-001-TYPEFIX — DOM matcher compatibility
+
+**Status:** IMPLEMENTED_PENDING_REVIEW; bounded repair LOCALLY_VERIFIED.
+Starting revision: f23d78ef2beb2f51406362d20262bed38918bee1. Owner explicitly assigned the external
+DT-001-TYPEFIX task, authorizing only the existing shell matcher import change,
+new adapter/declaration and new independent regression checks. Initial regression
+contents were recorded first and not revised. No initial approval gate applies.
+
+Aggregate typecheck PASS (0), original 22 plus five new candidate cases PASS
+(0, seven files, zero skips). Lint FAIL (1, same two CJS errors); ordinary suite
+FAIL (1, no files). Application source, dependencies/lockfile, all configurations,
+policy/specs and all existing assertions remain unchanged. ISSUE-005 is locally
+verified; DT-001 overall is NOT_VERIFIED, not DONE. Native runtime, release and
+independent acceptance evidence remain open. See [report](../validation/DT-001-typefix.md).
+
+Next owner action: review the local repair, then separately authorize the exact
+ISSUE-006 lint-config revision; ISSUE-007 discovery/expectation integration remains
+separate. Neither is started here. No installation, prompt storage or push.

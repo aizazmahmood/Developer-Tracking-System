@@ -198,3 +198,33 @@ the no-extra-fetch condition. No cache-clearing/config workaround was attempted.
 Windows development rendering/metadata/normal-close were observed with no repair;
 native security attacks, packaged/installed apps and Mac checks remain unexecuted.
 A native accessibility read returned no controls; it was not recorded as a pass.
+
+## 2026-11-10T03:14:37+05:00 — ISSUE-005 — Locally verified compatibility repair
+
+**Task:** DT-001-TYPEFIX, starting f23d78ef2beb2f51406362d20262bed38918bee1.
+**Status:** LOCALLY_VERIFIED; independent acceptance not claimed. Historical open
+diagnosis above is preserved; this dated entry supplies the actual repair result.
+**Environment:** native Windows Node 22.19.0 / npm 11.14.1 via WSL2;
+TypeScript 5.9.3, Vitest 5.1.0, jest-dom 7.0.1 (installed versions inspected).
+**Reproduction:** `cmd.exe /c npm run typecheck` exited 2 with the same three
+TS2428 errors before edits; original candidates passed 22 cases (exit 0).
+**Cause:** jest-dom's Vitest entry point augments Assertion<T>; installed Vitest
+uses Assertion<R,T>. The public Matchers<R,T> interface is the supported current
+augmentation surface. Standalone exports expose the library's matcher types.
+**Failed approach/evidence:** existing Vitest-specific import fails declaration
+merging despite passing runtime tests. No package/configuration workaround was
+attempted; the authorized standalone adapter passed on its first implementation.
+**Solution:** owner-authorized replacement of the shell's single side-effect
+import; actual standalone matchers registered with expect.extend, with local
+Matchers<R,T> declarations derived from the public upstream matcher interface.
+New fixed regression checks cover real failures, negation, awaited resolves,
+sync/async return types, overloads and rejection of invalid/misspelled calls.
+**Verification:** aggregate typecheck PASS (0, all three compiler commands),
+candidates PASS (0, seven files/27 cases: original 22 plus five new; zero skips).
+Integrity comparison preserves original test bodies/expectations and protected
+source/config/dependency files. No suppression of TS2428 or library checking.
+**Residual limits:** ISSUE-006 lint FAIL (1, same two CJS rule errors), ISSUE-007
+ordinary test FAIL (1, no files); neither repaired/waived. Runtime, package,
+installer, macOS, security enforcement and AI checks NOT_RUN in this task.
+See [full evidence](../validation/DT-001-typefix.md). Next: owner review, then
+separately scoped lint/discovery work. No dependency installation or push.

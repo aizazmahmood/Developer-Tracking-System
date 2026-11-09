@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import '@testing-library/jest-dom/vitest';
+import '../tests/fixtures/register-dom-matchers';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { App } from '../src/renderer/App';

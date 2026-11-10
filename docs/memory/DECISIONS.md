@@ -216,3 +216,21 @@ It does not authorize npm installation/update, source/config/test/procedure chan
 security bypass, installer execution, signing, publishing or push. Make exited 0;
 packaged smoke completed with local evidence and explicit remaining limits.
 See the dated completion entry in [report](../validation/DT-001-winpackage.md).
+
+## 2026-11-10T05:16:22+05:00 — D-028 — Scoped installed-app lifecycle authorization
+
+**Status:** EXPLICIT_OWNER_AUTHORIZATION, exercised in DT-001-WININSTALL.
+Owner assigned the external installed-app validation prompt with "read and run".
+This specifically authorizes the hash-identified 0.1.0 installer, a normal
+non-elevated current-user fresh installation, installed native launches/closes,
+and the verified registered supported uninstaller for ONLY that new installation,
+plus a fixed new procedure, evidence/memory and local commit. Normal installer-
+managed registration/files/shortcuts and prior static-shell cache reuse are within
+scope. Setup and supported uninstaller actually ran, each exit0; no pre-existing
+installation was present or removed. This supersedes prior installer-NOT_RUN only
+for this task's observed lifecycle, not historical evidence or release readiness.
+
+No npm/tool installation, rebuild, existing-test/source/config change, pre-existing
+install upgrade/removal, manual data/registry deletion, elevation, trust/security
+bypass, signing, remote write or push is authorized. No general policy is weakened.
+See [report](../validation/DT-001-wininstall.md); no architecture change proposed.

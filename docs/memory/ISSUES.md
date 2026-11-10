@@ -345,3 +345,25 @@ actual installed runtime-file inventory) are documented in the report, not hidde
 as product fixes. No tests/procedure/source/artifacts changed to resolve them.
 Final typecheck/lint/default45/focused43 PASS (0); scoped smoke task DONE, broader
 install/security/offline/macOS evidence still pending. No dependency install or push.
+
+## 2026-11-10T05:16:22+05:00 — ISSUE-010 — Attached native observer lost exit-code handle
+
+**Task:** DT-001-WININSTALL. **Status:** RESOLVED_FOR_SUBSEQUENT_OBSERVATIONS;
+first attached app exit remains UNKNOWN. Observation-tool issue, not a reproduced
+application defect. Native Windows PowerShell5.1/Windows10.0.26100.9711.
+
+**Symptom/reproduce:** attach Get-Process to installer-first-run app, observe its
+window, CloseMainWindow normally and then read ExitCode without retaining its
+native handle before exit. First observer command exited1 because ExitCode was
+null, although normal-close returned true, zero owned processes remained in0.980s,
+and app-only images show the complete expected UI/version. No crash/nonzero app
+exit was established. No forced cleanup or repeat installer execution.
+
+**Cause/attempted solution:** Get-Process attachment did not retain a native handle
+for exit status. Task-local ignored observer now accesses Process.Handle before
+closing. No source, existing tests/helpers, configuration or fixed WI procedure
+changed. Both later actual shortcut launches/closes returned observer/app exit0,
+zero remaining owned processes, in0.920s/0.990s. Original null remains in evidence;
+no retrospective exit0 is invented. Scope/source/test/procedure integrity passes.
+**Next action:** None for completing this task; retain a process handle in future
+native attachment observations. [Evidence](../validation/DT-001-wininstall.md).

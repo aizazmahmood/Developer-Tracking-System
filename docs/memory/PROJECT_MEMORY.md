@@ -834,3 +834,86 @@ outputs, raw logs or observer tools enter the stage. Final Windows exact-EXE
 process query returned zero (exit0). Staged scope/bytes/whitespace are reviewed
 before one local commit; no post-documentation executable changes require reruns.
 Task DONE within reported native/accessibility limits; parent IN_PROGRESS.
+
+## 2026-11-10T05:16:22+05:00 — DT-001-WININSTALL — Installed lifecycle completion
+
+**Status:** DONE, bounded developer-machine native evidence. Started clean main
+41199047e3718bec3097a36763ac428d724412d8; prior WINPACKAGE remains DONE. Owner
+assigned external installed-app prompt "read and run", explicitly authorizing
+this exact fresh 0.1.0 current-user installation/launch/close/supported uninstall,
+new fixed procedure/report/memory/local commit (D-028). No external prompt stored.
+Read instructions, policy, architecture/release/toolchain, current/history/issues/
+decisions, bootstrap addenda, prior package completion/procedure, source/config
+and actual Git/artifacts. No generic review or initial new-test approval required.
+
+Recorded 76 original file hashes at starting revision and fixed new WI procedure
+before install: SHA256 aeb5c52c2b672fbc95c5e7a388083e9ca5217a74302545556e78c01961bae2d1.
+No feature implementation or fabricated red. Native Windows 10.0.26100.9711 x64,
+PowerShell 5.1.26100.9711, non-elevated current user, orchestrated by WSL2; no
+owner-designated disposable environment. Node 22.19.0 / npm 11.14.1 / Electron 45.2.3 /
+Forge 8.0.1 / Vitest 5.1.0 observed. Preflight command exit 0: exact known Setup/EXE/ASAR
+hashes, Setup/app NotSigned/no certificate, absent installed roots/HKCU/HKLM
+registration/shortcuts/processes; prior 103-entry Chromium profile distinguished
+from meaningful tracker data and preserved without dumping contents.
+
+Identified Setup WAS run without flags: exit 0, PID 21508, settled in 31.335 s. Created
+%LOCALAPPDATA%/desktop_tracker, versioned AMD64 0.1.0 EXE/ASAR matching known hashes,
+HKCU desktop_tracker uninstall entry and Desktop/Start Menu shortcuts. Installed
+manifest/PE inspection command exit 0, launcher 292864 B distinguished from actual app
+249832448 B. Installer's first launch PID 22456 handled/normal close 0.980 s / tree 0;
+its attached observer command exit 1 due null ExitCode (app exit UNKNOWN), not product
+failure. ISSUE-010 records retaining native process handle in task-local observer;
+no protected test/procedure/source change. Two later Desktop-shortcut cycles
+PIDs 16568/19396: complete observed UI/states/Version 0.1.0, app/observer exit 0/0,
+normal close 0.920/0.990 s / tree 0. No forced termination or unrelated app interaction.
+No workspace dev instance/port 3000 listener. Child-only omission of inherited
+ELECTRON_RUN_AS_NODE=1; persistent value still 1. UIA buttons 0 => native IsEnabled
+NOT_RUN. App-only top/bottom PrintWindow screenshots inspected, ignored/uncommitted.
+
+Rechecked fresh ownership/registration/hash/process absence before supported
+uninstall. Parsed exact registered Update.exe and --uninstall, no shell eval.
+Supported uninstaller WAS run: exit 0, PID 15064, settled in 8.834 s within fixed 180 s;
+normal app closes stayed within 15 s and explicit shortcut opens within 30 s. Post
+inspection command exit 0: HKCU/HKLM matching entries 0, both created shortcuts and root
+launcher absent, installed app EXE/ASAR absent, app processes 0. Retained .dead(1B),
+Update.exe(1899520B), app-0.1.0 directory with squirrel.exe(1899520B) and
+v8_context_snapshot.bin(753352B) recorded, not executed/deleted; no normal app
+launch route remains. Prior profile 104 entries: ordinary empty-blob rotation and
+new preload cache, prior files retained. No manual cleanup or secure-erasure
+claim. Uninstall evidence is separate from prior unpacked package runs.
+
+Each native regression once independently: npm run typecheck PASS (0); npm run lint
+PASS (0) (--max-warnings 0); npm test with unfiltered JSON output PASS (0) (45 / 9 files),
+npm run test:candidates same reporting PASS (0), 43 / 8. Exact per-file ordinal/name/
+status rows match prior package-final inventories, no skips/todos. npm and
+platform/manifest probes exit 0. Baseline manifest SHA256 e03a4f6a560405f337bb24c59b31ca003218d7376a7cd53d93b9555099f6f587.
+After uninstall all 76 original tracked files and three known artifacts unchanged;
+final updates affect only new procedure/report/five memory files. Remaining 71
+originals (all source/tests/procedures/policy/config/deps/lockfile) unchanged; new
+WI hash fixed. Full scope/history/link/whitespace/staged review follows before
+local commit; hash reported separately without self-reference.
+
+No product defect reproduced; observer issue retained/resolved for later cycles.
+All WI01–08 pass, task DONE, parent DT-001 IN_PROGRESS. No owner action needed for
+this completion. Smallest separately assigned next task: native-security/IPC/CSP
+validation design against exact artifact, not started. Native button semantics,
+actual enforcement, clean-machine/full offline, upgrades/signing/AI/macOS NOT_RUN.
+No dependency install/update, make/rebuild, existing-test/config/source revision,
+manual profile deletion, security bypass, remote write or push. Actual temporary
+application installation and supported uninstall occurred; do not report nothing
+installed. Seven intended files; ignored logs/images/tools/artifacts stay out of Git.
+
+### 2026-11-10T05:18:41+05:00 — Final scope and evidence review
+
+Dependency-free integrity checker exited 0: 71 protected originals and the fixed
+new procedure unchanged, append-only history retained, exact seven-file scope,
+three artifact hashes and original 45/43 test identities retained, lifecycle
+bounds and post-uninstall evidence valid, 13 added local links and whitespace
+valid. Full intended procedure/report/current-state/task/history/issue/decision
+diff reviewed; no application/configuration/test repair. First observer helper
+exit 1 and unknown attached app exit remain explicit; two required shortcut
+cycles pass with actual app exit 0. Task DONE within its developer-machine scope;
+parent IN_PROGRESS. Staged named-file scope, byte identity and whitespace checks
+follow before authorized local commit; resulting hash reported in handoff.
+No prompt, screenshot, native helper/log, binary or runtime data is included.
+No dependency install/update, artifact rebuild, manual cleanup or push.

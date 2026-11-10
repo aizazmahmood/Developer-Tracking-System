@@ -1,7 +1,7 @@
 # Task Backlog
 
 **DT-001 — IN_PROGRESS; partially verified. DT-001-TYPEFIX — DONE; locally verified
-at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE. DT-001-LINTFIX — DONE. DT-001-DISCOVERY — DONE. DT-001-WINPACKAGE — DONE.**
+at cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265. DOCS-003 — DONE. DT-001-LINTFIX — DONE. DT-001-DISCOVERY — DONE. DT-001-WINPACKAGE — DONE. DT-001-WININSTALL — DONE.**
 DT-000 is PLANNED (infrastructure NOT_CONFIGURED); other unassigned features remain PLANNED.
 
 Write new tests first, record/run them, implement and verify without initial test
@@ -23,22 +23,25 @@ release, installation, dependency, policy and remote-operation rules.
 
 | Task | Status | Evidence and remaining work |
 |---|---|---|
-| DT-001-WINPACKAGE | DONE | Owner delegated make; Windows x64 package/Squirrel outputs PASS (0), ASAR/PE/payload inspected, rendered version/states and repeated normal close verified. Source checks PASS (0), 45/43 unchanged cases; native enabled-state NOT_RUN. Installer not executed. |
+| DT-001-WININSTALL | DONE | Identified installer and registered supported uninstaller actually run (0/0); installed payload matches known build, two real shortcut UI/version/normal-close cycles pass (exit 0, zero processes), registration/shortcuts/app payload removed, retained cache/infrastructure accounted for. Native source checks 0; 45/43 unchanged cases. Developer machine only. |
+| DT-001-WINPACKAGE | DONE | Owner delegated make; Windows x64 package/Squirrel outputs PASS (0), ASAR/PE/payload inspected, rendered version/states and repeated normal close verified. Source checks PASS (0), 45/43 unchanged cases; native enabled-state NOT_RUN. Installer not executed in that prior task; WININSTALL supplies separate installed-app evidence. |
 | DT-001-DISCOVERY | DONE | Local typecheck/lint/default/focused PASS (0): default 45, focused 43; 42 unchanged + authorized B10 + two new cases. No-match safeguard PASS (expected exit 1). ISSUE-007 resolved. |
 | DT-001-LINTFIX | DONE | Prior local lint/typecheck PASS (0), 43 candidates PASS (0: original 27 + new 16), genuine two-case red; exact override/integrity PASS. Its ordinary-discovery failure is superseded by DISCOVERY. |
 | DOCS-003 | DONE | Documentation consistency, preserved controls/history, local links, prior evidence, exact scope/hashes and whitespace PASS. Application checks NOT_RUN in DOCS-003; no review required. |
 | DT-001-TYPEFIX | DONE | Local cbc55c4b51c869ca9fb1ca71ae3eecdb3e731265: typecheck PASS (0); original 22 + five new candidates PASS (0); integrity/whitespace PASS. Prior failures retained in its report; current lint result is in LINTFIX. |
-| DT-001 | IN_PROGRESS | Partially verified; typecheck/lint/default/focused PASS (0), ordinary discovery integrated. Package/installer creation and unpacked launch/close verified; installation, full offline/native security and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
+| DT-001 | IN_PROGRESS | Partially verified; typecheck/lint/default/focused PASS (0), ordinary discovery integrated. Package/installer creation, unpacked launch/close and developer-machine installed launch/uninstall verified; clean-machine/full offline/native security and required macOS evidence NOT_RUN. Prior Windows development-window observation has limited scope. |
 | DT-000 | PLANNED | Separate infrastructure improvement; NOT_CONFIGURED; no blanket completion gate for unrelated local development. |
 
-Latest package/native verification: [Windows package](../validation/DT-001-winpackage.md).
+Latest installed lifecycle: [Windows install](../validation/DT-001-wininstall.md).
+Prior package/native verification: [Windows package](../validation/DT-001-winpackage.md).
 Prior [discovery](../validation/DT-001-discovery.md),
 [lint](../validation/DT-001-lintfix.md), [typefix](../validation/DT-001-typefix.md)
 and [baseline](../validation/DT-001-baseline.md) results retain their original scope.
 ISSUE-007 is locally resolved. [Windows package validation](../validation/DT-001-winpackage.md)
 is DONE after the owner's later explicit make delegation; initial missing-output
-ISSUE-009 is resolved. Next parent work is separately assigned installed-app,
-offline/clean-machine, native-security and platform evidence; none started here.
+ISSUE-009 is resolved. Installed-app developer-machine lifecycle is now separately verified in WININSTALL.
+Next parent gaps are offline/clean-machine, native-security and platform evidence;
+no unassigned follow-on task has started.
 Do not start unassigned features. Technical requirements below remain unchanged.
 
 ## Technical backlog and task-specific evidence
@@ -223,3 +226,27 @@ identities unchanged. [Report](../validation/DT-001-winpackage.md) preserves ini
 blocker and actual later evidence. ISSUE-009 resolved; parent stays IN_PROGRESS
 for installation/offline/native-security/platform checks. No review required.
 No dependency-install command, installer execution or push; no next task started.
+
+## 2026-11-10T05:16:22+05:00 — DT-001-WININSTALL — DONE
+
+Started clean 41199047e3718bec3097a36763ac428d724412d8; existing technical build
+5fc4e40, exact known 0.1.0 artifact. New fixed WI01–WI08 procedure hash recorded
+before install; unchanged throughout. Explicit task authorization (D-028) permitted
+current-user temporary app installation and supported removal only of this fresh
+install. No existing footprint or meaningful-data conflict; prior Chromium cache
+preserved. Native non-elevated developer-machine check, not clean-machine evidence.
+
+Setup exit 0/31.335 s; correct installed payload hashes/version, HKCU registration,
+two shortcuts. First-run shell handled; two actual Desktop-shortcut cycles show
+complete UI/Version0.1.0 and normal close (0/0, under1s, no remaining processes).
+Registered uninstall exit0/8.834s; shortcuts/registration/app payload removed.
+Retained .dead/updater/Squirrel/runtime remnants and prior profile documented;
+no manual deletion. First attached-observer helper exit1/null app exit is retained
+as diagnostic ISSUE-010; later retained-handle observations succeed. No app defect.
+Typecheck/lint/default45/focused43 all PASS(0), identities/bytes unchanged; original
+source/tests/config/policies/deps and fixed procedure preserved. All WI cases PASS;
+native enabled-state/offline/security/clean-machine/signing/upgrades/macOS remain
+outside scope/NOT_RUN. Parent IN_PROGRESS, WINPACKAGE remains DONE. No owner action
+for completion; next separate scoped native-security validation design, not started.
+New procedure/report/five memory files only; no dependencies installed or push.
+[Full evidence](../validation/DT-001-wininstall.md).
